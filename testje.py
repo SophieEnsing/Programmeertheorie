@@ -2,6 +2,10 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import csv
 
+
+print("hey")
+print("dit is stom.")
+
 G = nx.Graph()
 
 with open('StationsHolland.csv', 'rb') as csvfile:
