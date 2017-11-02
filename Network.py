@@ -9,7 +9,7 @@ with open('StationsHolland.csv', 'rb') as csvfile:
     for row in reader:
         G.add_node(row[0], pos=(float(row[1]), float(row[2])))
 
-pos = {city:(long, lat) for (city, (lat,long) in nx.get_node_attributes(G, 'pos').items()}
+pos = {city:(long, lat) for city, (lat,long) in nx.get_node_attributes(G, 'pos').items()}
 
 with open('ConnectiesHolland.csv', 'rb') as csvfile:
     reader = csv.reader(csvfile, delimiter=',')
