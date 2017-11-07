@@ -14,7 +14,6 @@ with open('data/StationsHolland.csv', 'rb') as csvfile:
 verbinding = {}
 verbindingKritiek = []
 
-
 with open('data/ConnectiesHolland.csv', 'rb') as csvfile:
     reader = csv.reader(csvfile, delimiter=',')
     for row in reader:
@@ -23,8 +22,10 @@ with open('data/ConnectiesHolland.csv', 'rb') as csvfile:
         if row[0] in stationsKritiek or row[1] in stationsKritiek:
         	verbindingKritiek.append((row[0], row[1]))
 
+
 tijd = 0
 route = []
+
 
 def shortroute(station):
 	global tijd
@@ -35,21 +36,46 @@ def shortroute(station):
 		route.append(station)		
 		kort = sorted(verbinding[station])[i]
 
-		while kort[1] in route:
-			if i == (len(verbinding[station]) - 1):
-				break
-			kort = sorted(verbinding[station])[i + 1]
-			i += 1
+		try:
+			while kort[1] == route[-2]:
+				if i == (len(verbinding[station]) - 1):
+					break
+				kort = sorted(verbinding[station])[i + 1]
+				i += 1
+		except:
+			pass
 		
-		if kort[1] not in route:
-			verbinding[station].remove(kort)
-			station = kort[1]
-			tijd += int(kort[0])
-			shortroute(station)
+		station = kort[1]
+		tijd += int(kort[0])
+		shortroute(station)
 
 	return route, tijd
 
-print shortroute('Amsterdam Amstel')
+
+def lijnvoering(stationLijst):
+	trajecten = {}
+	global tijd
+	global route
+
+	for stat in stationLijst:
+		tijd = 0
+		route = []
+		trajecten[stat] = shortroute(stat)
+
+	return trajecten
+
+def scoreLijnvoering(lijnen):
+	beginStations = random.sample(lijnen, 7)
+	for station in beginStations:
+		lijnen[station]
+
+print scoreLijnvoering(lijnvoering(stations))
+
+
+
+
+
+
 
 
 
