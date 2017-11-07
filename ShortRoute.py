@@ -14,6 +14,7 @@ with open('StationsHolland.csv', 'rb') as csvfile:
 verbinding = {}
 verbindingKritiek = []
 
+
 with open('ConnectiesHolland.csv', 'rb') as csvfile:
     reader = csv.reader(csvfile, delimiter=',')
     for row in reader:
@@ -48,6 +49,6 @@ def shortroute(station):
 
 	return route, tijd
 
-# print shortroute('Alkmaar')
+print shortroute('Alkmaar')
 
 
