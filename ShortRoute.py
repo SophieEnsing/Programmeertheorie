@@ -48,6 +48,6 @@ def shortroute(station):
 
 	return route, tijd
 
-# print shortroute('Alkmaar')
+print shortroute('Amsterdam Amstel')
 
 
