@@ -4,7 +4,7 @@ import random
 stations = []
 stationsKritiek = []
 
-with open('StationsHolland.csv', 'rb') as csvfile:
+with open('data/StationsHolland.csv', 'rb') as csvfile:
     reader = csv.reader(csvfile, delimiter=',')
     for row in reader:
         stations.append(row[0])
@@ -14,7 +14,8 @@ with open('StationsHolland.csv', 'rb') as csvfile:
 verbinding = {}
 verbindingKritiek = []
 
-with open('ConnectiesHolland.csv', 'rb') as csvfile:
+
+with open('data/ConnectiesHolland.csv', 'rb') as csvfile:
     reader = csv.reader(csvfile, delimiter=',')
     for row in reader:
         verbinding[row[0]] = verbinding.get(row[0], []) + [(int(row[2]), row[1])]
@@ -49,5 +50,6 @@ def shortroute(station):
 	return route, tijd
 
 print shortroute('Amsterdam Amstel')
+
 
 
