@@ -27,12 +27,12 @@ tijd = 0
 route = []
 
 
-def shortroute(station):
+def shortroute(station, trajectTijd):
 	global tijd
 	global route
 	i = 0
 
-	if tijd < 120:
+	if tijd < trajectTijd:
 		route.append(station)		
 		kort = sorted(verbinding[station])[i]
 
@@ -47,12 +47,12 @@ def shortroute(station):
 		
 		station = kort[1]
 		tijd += int(kort[0])
-		shortroute(station)
+		shortroute(station, trajectTijd)
 
 	return route, tijd
 
 
-def lijnvoering(stationLijst):
+def lijnvoering(stationLijst, trajectTijd):
 	trajecten = {}
 	global tijd
 	global route
@@ -60,16 +60,19 @@ def lijnvoering(stationLijst):
 	for stat in stationLijst:
 		tijd = 0
 		route = []
-		trajecten[stat] = shortroute(stat)
+		trajecten[stat] = shortroute(stat, trajectTijd)
 
 	return trajecten
 
-def scoreLijnvoering(lijnen):
-	beginStations = random.sample(lijnen, 7)
+def scoreLijnvoering(lijnen, aantalLijnen):
+	beginStations = random.sample(lijnen, aantalLijnen)
+	trajecten = []
 	for station in beginStations:
-		lijnen[station]
+		trajecten.append(lijnen[station])
 
-print scoreLijnvoering(lijnvoering(stations))
+	return trajecten
+
+print scoreLijnvoering(lijnvoering(stations, 120), 7)
 
 
 
