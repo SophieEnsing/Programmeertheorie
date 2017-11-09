@@ -1,5 +1,7 @@
+from __future__ import division
 import csv
 import random
+import numpy as np
 
 stations = []
 stationsKritiek = []
@@ -26,7 +28,6 @@ with open('data/ConnectiesHolland.csv', 'rb') as csvfile:
 tijd = 0
 route = []
 
-
 def shortroute(station, trajectTijd):
 	global tijd
 	global route
@@ -52,27 +53,42 @@ def shortroute(station, trajectTijd):
 	return route, tijd
 
 
-def lijnvoering(stationLijst, trajectTijd):
-	trajecten = {}
+def testLijnvoering(trajectTijd, aantalTrajecten):
+	beginStations = random.sample(stations, aantalTrajecten)
+	trajecten = []
 	global tijd
 	global route
 
-	for stat in stationLijst:
+	for stat in beginStations:
+		traject = {}
 		tijd = 0
 		route = []
-		trajecten[stat] = shortroute(stat, trajectTijd)
+		traject[stat] = shortroute(stat, trajectTijd)
+		trajecten.append(traject)
 
 	return trajecten
 
-def scoreLijnvoering(lijnen, aantalLijnen):
-	beginStations = random.sample(lijnen, aantalLijnen)
-	trajecten = []
-	for station in beginStations:
-		trajecten.append(lijnen[station])
+def scoreLijnvoering(lijnvoering):
+	verbindingen = []
+	aantalTrajecten = len(lijnvoering)
+	aantalMinuten = 0
 
-	return trajecten
+	for traject in lijnvoering:
+		aantalMinuten += traject.values()[0][1]
+		traject = traject.values()[0][0]
+		trajectParen = [(traject[i], traject[i+1]) for i in range(0, len(traject)-1 ,1)]
+		trajectParen2 = [traject for traject in trajectParen if traject[0] in stationsKritiek or traject[1] in stationsKritiek ]
+		verbindingen += trajectParen2
 
-print scoreLijnvoering(lijnvoering(stations, 120), 7)
+	setTrajectParen = list(set([ tuple(sorted(t)) for t in verbindingen]))
+	perKritiek = len(setTrajectParen) / len(verbindingKritiek)
+
+	S = (perKritiek * 10000) - ( (aantalTrajecten * 20) + (aantalMinuten / 100000) )
+	return S
+
+
+result = [scoreLijnvoering(testLijnvoering(100, 7)) for i in range(10000)]
+print max(result)
 
 
 
