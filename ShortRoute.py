@@ -76,25 +76,24 @@ def scoreLijnvoering(lijnvoering):
 	for traject in lijnvoering:
 		aantalMinuten += traject.values()[0][1]
 		traject = traject.values()[0][0]
+
 		trajectParen = [(traject[i], traject[i+1]) for i in range(0, len(traject)-1 ,1)]
-		trajectParen2 = [traject for traject in trajectParen if traject[0] in stationsKritiek or traject[1] in stationsKritiek ]
+		trajectParen2 = [traject for traject in trajectParen if traject[0] in stationsKritiek or traject[1] in stationsKritiek]
 		verbindingen += trajectParen2
 
 	setTrajectParen = list(set([ tuple(sorted(t)) for t in verbindingen]))
-	perKritiek = len(setTrajectParen) / len(verbindingKritiek)
+	percKritiek = len(setTrajectParen) / len(verbindingKritiek)
 
-	S = (perKritiek * 10000) - ( (aantalTrajecten * 20) + (aantalMinuten / 100000) )
+	S = (percKritiek * 10000) - ((aantalTrajecten * 20) + (aantalMinuten / 100000))
+
+	# Score functie S:
+	# S = p*10000 - (t*20 + min/100000)
+
 	return S
 
 
 result = [scoreLijnvoering(testLijnvoering(100, 7)) for i in range(10000)]
-print max(result)
-
-
-
-
-
-
+print "mean:", np.mean(result), "max:", max(result)
 
 
 
