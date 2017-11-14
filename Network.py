@@ -6,22 +6,22 @@ G = nx.Graph()
 stationsKritiek = []
 
 
-with open('data/StationsHolland.csv', 'rb') as csvfile:
+with open('data/StationsHolland.csv', 'r') as csvfile:
     reader = csv.reader(csvfile, delimiter=',')
     for row in reader:
         G.add_node(row[0], pos=(float(row[1]), float(row[2])))
         if row[3] == 'Kritiek':
-        	stationsKritiek.append(row[0])
+            stationsKritiek.append(row[0])
 
 pos = {city:(long, lat) for city, (lat,long) in nx.get_node_attributes(G, 'pos').items()}
 
-with open('data/ConnectiesHolland.csv', 'rb') as csvfile:
+with open('data/ConnectiesHolland.csv', 'r') as csvfile:
     reader = csv.reader(csvfile, delimiter=',')
     for row in reader:
-    	if row[0] in stationsKritiek or row[1] in stationsKritiek:
-    		G.add_edge(row[0], row[1], color='r', weight = int(row[2]))
+        if row[0] in stationsKritiek or row[1] in stationsKritiek:
+            G.add_edge(row[0], row[1], color='r', weight = int(row[2]))
         else:
-        	G.add_edge(row[0], row[1], color='b', weight = int(row[2]))
+            G.add_edge(row[0], row[1], color='b', weight = int(row[2]))
 
 edges = G.edges()
 colors = [G[u][v]['color'] for u,v in edges]
