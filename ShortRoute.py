@@ -7,7 +7,7 @@ import numpy as np
 stations = []
 stationsKritiek = []
 
-with open('data/StationsHolland.csv', 'rb') as csvfile:
+with open('data/StationsHolland.csv', 'r') as csvfile:
     reader = csv.reader(csvfile, delimiter=',')
     for row in reader:
         stations.append(row[0])
@@ -18,7 +18,7 @@ with open('data/StationsHolland.csv', 'rb') as csvfile:
 verbinding = {}
 verbindingKritiek = []
 
-with open('data/ConnectiesHolland.csv', 'rb') as csvfile:
+with open('data/ConnectiesHolland.csv', 'r') as csvfile:
     reader = csv.reader(csvfile, delimiter=',')
     for row in reader:
     	# Alle verbindingen toevoegen per station in een dictionary
@@ -93,8 +93,8 @@ def scoreLijnvoering(lijnvoering):
 
 	for traject in lijnvoering:
 		# Bijhouden van totale tijd in minuten van de lijnvoering
-		aantalMinuten += traject.values()[0][1]
-		traject = traject.values()[0][0]
+		aantalMinuten += list(traject.values())[0][1]
+		traject = list(traject.values())[0][0]
 
 		# Maak van een traject een lijst van verbindingen in dat traject
 		trajectParen = [(traject[i], traject[i+1]) for i in range(0, len(traject)-1 ,1)]
@@ -112,7 +112,8 @@ def scoreLijnvoering(lijnvoering):
 
 # Gemiddelde en hoogste score bij 10,000 keer uitvoeren van de functie
 result = [scoreLijnvoering(testLijnvoering(100, 7)) for i in range(10000)]
-print "mean:", np.mean(result), "max:", max(result)
+print("mean:", np.mean(result), "max:", max(result)) 
+
 
 
 
