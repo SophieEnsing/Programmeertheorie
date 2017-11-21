@@ -28,7 +28,7 @@ Maak wederom een lijnvoering voor heel Nederland met maximaal twintig trajecten 
 de score S zo hoog mogelijk te krijgen. De scorefunctie blijft ongewijzigd. Doe hetzelfde waarbij je alle sporen van Nederland als 
 kritiek beschouwt.Maak een aantrekkelijke visualisatie van je resultaten. Hoe je dat doet, mag je zelf bepalen.
 
-## Installing
+## Installeren
 
 Voor het uitvoeren van het bestand Network.py is de python library networkx nodig. Dit bestand bevat een visualisatie van 
 het eerste deel van de opdracht.
@@ -39,3 +39,7 @@ Het eerste algoritme wat wij nu hebben geschreven is een random algoritme 'short
 beginstation een traject waar steeds de dichtstbijzijnde optie gekozen wordt. Deze functie krijgt een maximale tijd mee voor het 
 traject. Daarna worden er verschillende trajecten gecombineerd tot lijnvoering en wordt de score van deze lijnvoering berekend 
 in de laatste functie.
+
+## Auteurs
+
+Sophie Ensing, Gavin Schipper en Rosalie Snijders.
