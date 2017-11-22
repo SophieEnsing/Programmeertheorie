@@ -111,5 +111,5 @@ def scoreLijnvoering(lijnvoering):
 	return S
 
 # Gemiddelde en hoogste score bij 10,000 keer uitvoeren van de functie
-#result = [scoreLijnvoering(testLijnvoering(100, 7)) for i in range(10000)]
-#print("mean:", np.mean(result), "max:", max(result)) 
+result = [scoreLijnvoering(testLijnvoering(100, 7)) for i in range(10000000)]
+print("mean:", np.mean(result), "max:", max(result)) 
