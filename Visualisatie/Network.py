@@ -6,7 +6,7 @@ G = nx.Graph()
 stationsKritiek = []
 
 
-with open('data/StationsHolland.csv', 'r') as csvfile:
+with open('../Data/StationsHolland.csv', 'r') as csvfile:
     reader = csv.reader(csvfile, delimiter=',')
     for row in reader:
         G.add_node(row[0], pos=(float(row[1]), float(row[2])))
@@ -15,7 +15,7 @@ with open('data/StationsHolland.csv', 'r') as csvfile:
 
 pos = {city:(long, lat) for city, (lat,long) in nx.get_node_attributes(G, 'pos').items()}
 
-with open('data/ConnectiesHolland.csv', 'r') as csvfile:
+with open('../Data/ConnectiesHolland.csv', 'r') as csvfile:
     reader = csv.reader(csvfile, delimiter=',')
     for row in reader:
         if row[0] in stationsKritiek or row[1] in stationsKritiek:

@@ -1,11 +1,10 @@
 import csv
 
-
 # Inlezen van alle data
 stations = []
 stationsKritiek = []
 
-with open('data/StationsHolland.csv', 'r') as csvfile:
+with open('../Data/StationsHolland.csv', 'r') as csvfile:
     reader = csv.reader(csvfile, delimiter=',')
     for row in reader:
         stations.append(row[0])
@@ -16,7 +15,7 @@ with open('data/StationsHolland.csv', 'r') as csvfile:
 verbinding = {}
 verbindingKritiek = []
 
-with open('data/ConnectiesHolland.csv', 'r') as csvfile:
+with open('../Data/ConnectiesHolland.csv', 'r') as csvfile:
     reader = csv.reader(csvfile, delimiter=',')
     for row in reader:
     	# Alle verbindingen toevoegen per station in een dictionary

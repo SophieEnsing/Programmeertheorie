@@ -13,6 +13,7 @@ def shortroute(station, trajectTijd):
 	Station: beginstation van het traject """
 	global tijd
 	global route
+	
 	i = 0
 
 	if tijd < trajectTijd:
