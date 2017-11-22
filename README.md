@@ -13,20 +13,25 @@ Den Haag Centraal, Gouda, Haarlem, Rotterdam Centraal en Zaandam. Je vindt ze in
 Als deze stations niet regelmatig aangedaan worden treden er in de Randstad enorme logistieke problemen op door de grote aantallen 
 overstappers op deze stations. De spoorverbindingen van en naar deze stations worden daarom kritieke verbindingen genoemd.
 
- Maak een lijnvoering voor Noord-Holland met maximaal zeven trajecten binnen een tijdsframe van twee uur, waarbij zoveel mogelijk 
-van de kritieke sporen bereden wordt. Als je 100% haalt heb je uiteraard de maximaal haalbare score bereikt.
-
 S = p * 10000 - ( t * 20 + min / 100000 )
 
-Maak wederom een lijnvoering voor Noord-Holland met maximaal zeven trajecten binnen een tijdsframe van twee uur, 
-en probeer nu de score S zo hoog mogelijk te krijgen. Ga er nu vanuit dat alle sporen in Holland kritiek zijn. 
-Hoe hoog kun je nu de score maken?
+- Maak een lijnvoering voor Noord-Holland met maximaal zeven trajecten binnen een tijdsframe van twee uur, waarbij zoveel mogelijk 
+van de kritieke sporen bereden wordt. Als je 100% haalt heb je uiteraard de maximaal haalbare score bereikt.
+- Maak wederom een lijnvoering voor Noord-Holland met maximaal zeven trajecten binnen een tijdsframe van twee uur, 
+en probeer nu de score S zo hoog mogelijk te krijgen. 
+- Ga er nu vanuit dat alle sporen in Holland kritiek zijn. Hoe hoog kun je nu de score maken?
 
 ## Opdracht deel 2: Nederland
 
-Maak wederom een lijnvoering voor heel Nederland met maximaal twintig trajecten binnen een tijdsframe van drie uur, en probeer nu 
-de score S zo hoog mogelijk te krijgen. De scorefunctie blijft ongewijzigd. Doe hetzelfde waarbij je alle sporen van Nederland als 
-kritiek beschouwt.Maak een aantrekkelijke visualisatie van je resultaten. Hoe je dat doet, mag je zelf bepalen.
+- Maak wederom een lijnvoering voor heel Nederland met maximaal twintig trajecten binnen een tijdsframe van drie uur, en probeer nu 
+de score S zo hoog mogelijk te krijgen. De scorefunctie blijft ongewijzigd. 
+- Doe hetzelfde waarbij je alle sporen van Nederland als kritiek beschouwt. 
+- Maak een aantrekkelijke visualisatie van je resultaten. Hoe je dat doet, mag je zelf bepalen.
+
+## Advanced
+
+- Utrecht Centraal gaat op de schop, en alle treinverbindingen van en naar Utrecht komen tijdelijk te vervallen omdat ze vervangen worden door bussen. Alle verbindingen tussen de stations die verbonden zijn met Utrecht zijn nu kritiek. Maak wederom een lijnvoering.
+- Test voor uitval van andere stations hoe groot de impact is op je beste lijnvoering.
 
 ## Installeren
 
