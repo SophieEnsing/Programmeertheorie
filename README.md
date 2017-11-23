@@ -1,22 +1,16 @@
 # Programmeertheorie
 
-Deze case gaat over het maken van de lijnvoering. Meer specifiek: over de lijnvoering van intercitytreinen. 
-Dat betekent dat je binnen een gegeven tijdsframe een aantal trajecten uitzet. Een traject is een route van sporen en 
-stations waarover treinen heen en weer rijden. Een traject mag niet langer zijn dan het opgegeven tijdsframe.
+Deze case gaat over het maken van de lijnvoering van intercity treinen in Nederland. Het is de bedoeling dat wij binnen een gegeven tijdsframe een aantal trajecten moeten uitzetten. In onze case wordt een traject gedefinieerd als een route van sporen en stations waarover treinen heen en weer rijden. Een traject mag hierbij niet langer zijn dan een opgegeven tijdsframe.
 
 ## Opdracht deel 1: Noord- en Zuid-Holland
 
-In de provincies Noord- en Zuid-Holland liggen in totaal 118 treinstations, waarvan de 22 belangrijkste intercitystations met 
-de tussenliggende spoorverbindingen, in een .csv-bestand zijn opgeslagen. De getallen die achter een verbinding staan zijn de 
-reistijden in minuten. Van deze 22 stations zijn er 7 door RailNL als kritiek bestempeld: Alkmaar, Amsterdam Centraal, 
-Den Haag Centraal, Gouda, Haarlem, Rotterdam Centraal en Zaandam. Je vindt ze in dit csv-bestand samen met hun x/y-coordinaten. 
-Als deze stations niet regelmatig aangedaan worden treden er in de Randstad enorme logistieke problemen op door de grote aantallen 
-overstappers op deze stations. De spoorverbindingen van en naar deze stations worden daarom kritieke verbindingen genoemd.
+Voor onze case moeten wij als eerste een lijnvoering maken van de 22 belangrijkste intercitystations in Noord-Holland en Zuid-Holland. Van deze 22 stations zijn er 7 door RailNL als kritiek bestempeld: Alkmaar, Amsterdam Centraal, Den Haag Centraal, Gouda, Haarlem, Rotterdam Centraal en Zaandam. Alle verbindingen van en naar die kritieke stations zijn dus kritieke verbindingen.
+
+Om de kwaliteit van de lijnvoering te berekenen is er een score functie opgesteld. Hierbij is de p het percentage bereden kritieke verbindingen, t het aantal trajecten en m het aantal minuten van alle trajecten in de lijnvoering.
 
 S = p * 10000 - ( t * 20 + min / 100000 )
 
-- Maak een lijnvoering voor Noord-Holland met maximaal zeven trajecten binnen een tijdsframe van twee uur, waarbij zoveel mogelijk 
-van de kritieke sporen bereden wordt. Als je 100% haalt heb je uiteraard de maximaal haalbare score bereikt.
+- Maak een lijnvoering voor Noord-Holland met maximaal zeven trajecten binnen een tijdsframe van twee uur, waarbij zoveel mogelijk van de kritieke sporen bereden wordt. Als je 100% haalt heb je uiteraard de maximaal haalbare score bereikt.
 - Maak wederom een lijnvoering voor Noord-Holland met maximaal zeven trajecten binnen een tijdsframe van twee uur, 
 en probeer nu de score S zo hoog mogelijk te krijgen. 
 - Ga er nu vanuit dat alle sporen in Holland kritiek zijn. Hoe hoog kun je nu de score maken?
@@ -38,12 +32,14 @@ de score S zo hoog mogelijk te krijgen. De scorefunctie blijft ongewijzigd.
 Voor het uitvoeren van het bestand Network.py is de python library networkx nodig. Dit bestand bevat een visualisatie van 
 het eerste deel van de opdracht.
 
+## Hulpfunctie
+
+Een eerste functie die wij hebben geschreven is een de functie 'shortKritiekRoute'. Deze functie maakt vanuit een random 
+beginstation een traject waarbij vanuit elk station het kortste kritieke pad wordt gekozen en als er geen kritiek pad is, het kortste niet kritieke pad. Deze functie krijgt een maximale tijd mee voor het traject. Daarnaast hebben wij een functie geschreven die verschillende trajecten combineert tot een lijnvoering, waarbij wordt aangegeven hoeveel trajecten in een lijnvoering mogen zitten. Als laatste hebben wij een functie geschreven waar de score van deze lijnvoering berekend wordt.
+
 ## Algoritmes
 
-Het eerste algoritme wat wij nu hebben geschreven is een random algoritme 'shortRoute'. Dit algoritme maakt vanuit een random 
-beginstation een traject waar steeds de dichtstbijzijnde optie gekozen wordt. Deze functie krijgt een maximale tijd mee voor het 
-traject. Daarna worden er verschillende trajecten gecombineerd tot lijnvoering en wordt de score van deze lijnvoering berekend 
-in de laatste functie.
+Voor ons eerste algoritme hebben wij een Hill Climber algoritme geschreven. Dit algoritme heeft als begin state een random combinatie van beginstations en hun bijhorende trajecten. Ons algoritme gaat dan telkens een beginstation vervangen voor een ander beginstation, waarna hij kijkt of de score verbeterd wordt na de verandering. Als de score beter is accepteert hij die combinatie als de nieuwe current state. Dit gaat door totdat hij 1000 keer geen verbetering heeft gevonden van de score.
 
 ## Auteurs
 
