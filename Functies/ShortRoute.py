@@ -5,48 +5,42 @@ import numpy as np
 tijd = 0
 route = []
 
-# Algoritme 1: Greedy algorithm
-def shortroute(station, trajectTijd):
+def shortKritiek(station, trajectTijd):
 	""" Maak een traject vanuit een beginstation, vanuit dit
-	station wordt het dichtsbijzijnde station gekozen
+	station wordt het korste kritieke pad gekozen
 	Trajecttijd: maximale tijd in minuten voor het traject
 	Station: beginstation van het traject """
 	global tijd
 	global route
 	
-	i = 0
+	route.append(station)	
 
-	if tijd < trajectTijd:
-		route.append(station)	
+	# Maak lijsten van normale verbindingen en kritieke verbindingen
+	verbindingen = [ (afstand, eindstation) for afstand, eindstation in verbinding[station] 
+						if eindstation not in route ]
+	kritiekeVerbindingen = [ (afstand, eindstation) for afstand, eindstation in 
+							verbindingen if eindstation in stationsKritiek or station in stationsKritiek ]
 
-		verbindingen = [ (tijd, eindstation) for tijd, eindstation in verbinding[station] if eindstation not in route ]
-		kritiekeVerbindingen = [ (tijd, eindstation) for tijd, eindstation in verbindingen if eindstation in stationsKritiek ]
+	# Kies eerst de kortste kritieke verbinding en anders de kortste verbinding
+	if len(kritiekeVerbindingen) >= 1:
+		kort = sorted(kritiekeVerbindingen)[0]
 
-		if len(kritiekeVerbindingen) >= 1:
-			kort = sorted(kritiekeVerbindingen)[i]
-		elif len(verbindingen) >= 1:
-			kort = sorted(verbindingen)[i]
-		else:
-			return route, tijd
+	elif len(verbindingen) >= 1:
+		kort = sorted(verbindingen)[0]
 
-		'''try:
-			# Ga niet terug naar het voorgaande station
-			while kort[1] == route[-2]:
-				if i == (len(verbinding[station]) - 1):
-					break
-				kort = sorted(verbinding[station])[i + 1]
-				i += 1
-		except:
-			pass'''
-		
+	else:
+		return route, tijd
+
+	if tijd + int(kort[0]) < trajectTijd:
 		station = kort[1]
 		tijd += int(kort[0])
-
-		shortroute(station, trajectTijd)
+		shortKritiek(station, trajectTijd)
 
 	return route, tijd
 
-def testLijnvoering(trajectTijd, aantalTrajecten):
+#print(shortKritiek("Leiden Centraal", 50))
+
+def lijnvoering(trajectTijd, aantalTrajecten):
 	"""" Maakt een lijnvoering van verschillende trajecten
 	Trajecttijd: maximale tijd in minuten per traject
 	Aantaltrajecten: aantal trajecten in de lijnvoering"""
@@ -62,7 +56,7 @@ def testLijnvoering(trajectTijd, aantalTrajecten):
 		traject = {}
 		tijd = 0
 		route = []
-		traject[stat] = shortroute(stat, trajectTijd)
+		traject[stat] = shortKritiek(stat, trajectTijd)
 		trajecten.append(traject)
 
 	return trajecten

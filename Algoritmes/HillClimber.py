@@ -3,6 +3,11 @@ import random
 import numpy as np
 import csv
 
+
+""" Alle code tot de hillclimber functie zelf is dubbelop met andere bestanden. Het is
+de bedoeling dat deze code later geimporteerd wordt vanuit de andere bestanden.
+"""
+
 # Inlezen van alle data
 stations = []
 stationsKritiek = []
@@ -32,10 +37,9 @@ with open('../Data/ConnectiesHolland.csv', 'r') as csvfile:
 tijd = 0
 route = []
 
-# Algoritme 1: Greedy algorithm
-def shortroute(station, trajectTijd):
+def shortKritiek(station, trajectTijd):
 	""" Maak een traject vanuit een beginstation, vanuit dit
-	station wordt het dichtsbijzijnde station gekozen
+	station wordt het korste kritieke pad gekozen
 	Trajecttijd: maximale tijd in minuten voor het traject
 	Station: beginstation van het traject """
 	global tijd
@@ -43,9 +47,13 @@ def shortroute(station, trajectTijd):
 	
 	route.append(station)	
 
-	verbindingen = [ (afstand, eindstation) for afstand, eindstation in verbinding[station] if eindstation not in route ]
-	kritiekeVerbindingen = [ (afstand, eindstation) for afstand, eindstation in verbindingen if eindstation in stationsKritiek or station in stationsKritiek ]
+	# Maak lijsten van normale verbindingen en kritieke verbindingen
+	verbindingen = [ (afstand, eindstation) for afstand, eindstation in verbinding[station] 
+						if eindstation not in route ]
+	kritiekeVerbindingen = [ (afstand, eindstation) for afstand, eindstation in 
+							verbindingen if eindstation in stationsKritiek or station in stationsKritiek ]
 
+	# Kies eerst de kortste kritieke verbinding en anders de kortste verbinding
 	if len(kritiekeVerbindingen) >= 1:
 		kort = sorted(kritiekeVerbindingen)[0]
 
@@ -58,13 +66,13 @@ def shortroute(station, trajectTijd):
 	if tijd + int(kort[0]) < trajectTijd:
 		station = kort[1]
 		tijd += int(kort[0])
-		shortroute(station, trajectTijd)
+		shortKritiek(station, trajectTijd)
 
 	return route, tijd
 
-#print(shortroute("Leiden Centraal", 50))
+#print(shortKritiek("Leiden Centraal", 50))
 
-def testLijnvoering(trajectTijd, beginStations):
+def lijnvoering(trajectTijd, beginStations):
 	"""" Maakt een lijnvoering van verschillende trajecten
 	Trajecttijd: maximale tijd in minuten per traject"""
 
@@ -78,7 +86,7 @@ def testLijnvoering(trajectTijd, beginStations):
 		traject = {}
 		tijd = 0
 		route = []
-		traject[stat] = shortroute(stat, trajectTijd)
+		traject[stat] = shortKritiek(stat, trajectTijd)
 		trajecten.append(traject)
 
 	return trajecten
@@ -120,7 +128,7 @@ def hillClimber(trajectTijd, aantalTrajecten):
 	beginStations = random.sample(stations, aantalTrajecten)
 
 	# Maak een begin state en archief aan
-	currentState = testLijnvoering(trajectTijd, beginStations)
+	currentState = lijnvoering(trajectTijd, beginStations)
 	currentScore = scoreLijnvoering(currentState)
 	archief = [sorted(beginStations)]
 	
@@ -143,7 +151,7 @@ def hillClimber(trajectTijd, aantalTrajecten):
 		# Check of de combinatie van stations niet in het archief staat
 		if nieuweStations not in archief:
 			archief.append(nieuweStations)
-			newState = testLijnvoering(trajectTijd, nieuweStations)
+			newState = lijnvoering(trajectTijd, nieuweStations)
 			newScore = scoreLijnvoering(newState)
 
 			# Check of de score beter is
@@ -159,20 +167,3 @@ def hillClimber(trajectTijd, aantalTrajecten):
 	return currentScore, beginStations
 
 print(hillClimber(120, 7))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
