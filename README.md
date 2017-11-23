@@ -9,7 +9,7 @@ het eerste deel van de opdracht.
 
 ## Functies
 
-Een eerste functie die wij hebben geschreven is een de functie 'shortKritiekRoute'. Deze functie maakt vanuit een random 
+Een eerste functie die wij hebben geschreven is een de functie 'shortKritiek'. Deze functie maakt vanuit een random 
 beginstation een traject waarbij vanuit elk station het kortste kritieke pad wordt gekozen en als er geen kritiek pad is, het kortste niet kritieke pad. Deze functie krijgt een maximale tijd mee voor het traject. Daarnaast hebben wij een functie geschreven die verschillende trajecten combineert tot een lijnvoering, waarbij wordt aangegeven hoeveel trajecten in een lijnvoering mogen zitten. Als laatste hebben wij een functie geschreven waar de score van deze lijnvoering berekend wordt.
 
 ## Algoritmes
