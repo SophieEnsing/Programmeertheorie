@@ -37,6 +37,33 @@ with open('../Data/ConnectiesHolland.csv', 'r') as csvfile:
 tijd = 0
 route = []
 
+def scoreLijnvoering(lijnvoering):
+	""" Bereken de score van de lijnvoering
+	Score functie S > S = p*10000 - (t*20 + min/100000)
+	"""
+	verbindingen = []
+	aantalTrajecten = len(lijnvoering)
+	aantalMinuten = 0
+
+	for traject in lijnvoering:
+		# Bijhouden van totale tijd in minuten van de lijnvoering
+		aantalMinuten += traject[1]
+		traject = traject[0]
+
+		# Maak van een traject een lijst van verbindingen in dat traject
+		trajectParen = [(traject[i], traject[i+1]) for i in range(0, len(traject)-1 ,1)]
+		# Check voor elke verbinding of een van de stations kritiek is
+		trajectParen2 = [traject for traject in trajectParen if traject[0] in stationsKritiek or traject[1] in stationsKritiek]
+		# Voeg de kritieke verbindingen toe aan een lijst
+		verbindingen += trajectParen2
+
+	# Set van verbindingen om dubbele tuples te voorkomen
+	setTrajectParen = list(set([ tuple(sorted(t)) for t in verbindingen]))
+	percKritiek = len(setTrajectParen) / len(verbindingKritiek)
+
+	S = (percKritiek * 1000) - ((aantalTrajecten * 20) + (aantalMinuten / 10))
+	return S
+
 def randomRoute(station, trajectTijd):
 	global tijd
 	global route
@@ -57,23 +84,30 @@ def randomRoute(station, trajectTijd):
 
 	return route, tijd
 
-print(randomRoute("Leiden Centraal", 120))
+def RandomAlgo(x):
+	global tijd
+	global route
+
+	lijnvoeringen = []
+
+	for run in range(x):
+		trajectAantal = random.randint(1,7)
+		beginstations = random.sample(stations, trajectAantal)
+
+		lijnvoering = []
+
+		for station in beginstations:
+			tijd = 0
+			route = []
+			lijnvoering.append(randomRoute(station, 120))
+
+		score = scoreLijnvoering(lijnvoering)
+
+		lijnvoeringen.append((lijnvoering, score))
+
+	lijnvoeringen.sort(key=lambda tup: tup[1])
+	print(lijnvoeringen[-1])
+
+RandomAlgo(500000)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
