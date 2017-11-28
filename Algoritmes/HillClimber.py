@@ -115,7 +115,7 @@ def scoreLijnvoering(lijnvoering):
 	setTrajectParen = list(set([ tuple(sorted(t)) for t in verbindingen]))
 	percKritiek = len(setTrajectParen) / len(verbindingKritiek)
 
-	S = (percKritiek * 10000) - ((aantalTrajecten * 20) + (aantalMinuten / 100000))
+	S = (percKritiek * 1000) - ((aantalTrajecten * 20) + (aantalMinuten / 10))
 	return S
 
 def hillClimber(trajectTijd, aantalTrajecten):
@@ -166,4 +166,4 @@ def hillClimber(trajectTijd, aantalTrajecten):
 
 	return currentScore, beginStations
 
-print(hillClimber(120, 7))
+print(hillClimber(80, 5))
