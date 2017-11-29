@@ -166,4 +166,4 @@ def hillClimber(trajectTijd, aantalTrajecten):
 
 	return currentScore, beginStations
 
-print(hillClimber(80, 5))
+print(hillClimber(120, 7))
