@@ -106,8 +106,9 @@ def RandomAlgo(x):
 		lijnvoeringen.append((lijnvoering, score))
 
 	lijnvoeringen.sort(key=lambda tup: tup[1])
+
 	print(lijnvoeringen[-1])
 
-RandomAlgo(500000)
+RandomAlgo(100000)
 
 
