@@ -1,3 +1,5 @@
+from __future__ import division
+
 def scoreLijnvoering(lijnvoering):
 	""" Bereken de score van de lijnvoering
 	Score functie S > S = p*10000 - (t*20 + min/100000)
