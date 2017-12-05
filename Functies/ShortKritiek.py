@@ -36,15 +36,12 @@ def shortKritiek(station, trajectTijd):
 
 	return route, tijd
 
-#print(shortKritiek("Leiden Centraal", 50))
-
-def lijnvoering(trajectTijd, aantalTrajecten):
+def lijnvoering(trajectTijd, beginStations):
 	"""" Maakt een lijnvoering van verschillende trajecten
 	Trajecttijd: maximale tijd in minuten per traject
 	Aantaltrajecten: aantal trajecten in de lijnvoering"""
 
 	# Genereer random beginstations
-	beginStations = random.sample(stations, aantalTrajecten)
 	trajecten = []
 	global tijd
 	global route

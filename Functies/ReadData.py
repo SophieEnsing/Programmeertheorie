@@ -2,7 +2,7 @@ import csv
 
 stations = []
 stationsKritiek = []
-    
+
 def inlezenStations(csvBestand):
 
 
@@ -16,10 +16,10 @@ def inlezenStations(csvBestand):
 
     return stations, stationsKritiek
 
+verbinding = {}
+verbindingKritiek = []
+
 def inlezenVerbindingen(csvBestand):
-    verbinding = {}
-    verbindingKritiek = []
-    
     with open(csvBestand, 'r') as csvfile:    
         reader = csv.reader(csvfile, delimiter=',')
         for row in reader:
@@ -32,4 +32,3 @@ def inlezenVerbindingen(csvBestand):
                 verbindingKritiek.append((row[0], row[1]))
 
     return verbinding, verbindingKritiek
-

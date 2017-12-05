@@ -1,6 +1,7 @@
+from Functies.ShortKritiek import *
 import random
 
-def hillClimber(trajectTijd, aantalTrajecten):
+def hillClimber(trajectTijd, aantalTrajecten, stations):
 	""" Maak een random combinate van trajecten als start state
 	en verander elke keer 1 beginstation. Neem de verandering aan
 	als het beter is en anders door naar een volgende optie. In het

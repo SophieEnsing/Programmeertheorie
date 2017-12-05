@@ -1,3 +1,6 @@
+from Functies.ReadData import *
+from Functies.Score import *
+from Functies.ShortKritiek import *
 import random
 
 def randomRoute(station, trajectTijd):
@@ -20,7 +23,7 @@ def randomRoute(station, trajectTijd):
 
 	return route, tijd
 
-def RandomAlgo(x):
+def randomAlgoritme(x):
 	global tijd
 	global route
 
