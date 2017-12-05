@@ -32,3 +32,4 @@ def inlezenVerbindingen(csvBestand):
                 verbindingKritiek.append((row[0], row[1]))
 
     return verbinding, verbindingKritiek
+
