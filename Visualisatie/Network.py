@@ -25,7 +25,7 @@ with open('../Data/ConnectiesNationaal.csv', 'r') as csvfile:
 
 edges = G.edges()
 colors = [G[u][v]['color'] for u,v in edges]
-nx.draw(G, pos, with_labels = True, node_size = 50, edge_color=colors, font_size = 5)
+nx.draw(G, pos, with_labels = True, node_size = 10, edge_color=colors, font_size = 5)
 labels = nx.get_edge_attributes(G,'weight')
 nx.draw_networkx_edge_labels(G, pos, edge_labels=labels, font_size = 5)
 plt.show()
