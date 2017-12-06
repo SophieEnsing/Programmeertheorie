@@ -126,14 +126,14 @@ def grafiek(y_waardes, aantal_interaties):
 	plt.show()
 
 def acceptance(old, new, T):
-	a = bigfloat.exp(((old - new) / T),bigfloat.precision(100))
+	a = np.exp((new - old) / T)
 	return a
 
 
 def SimulatedAnnealing(trajectTijd, aantalTrajecten):
-	T = 1.0
-	T_min = 0.00001
-	alpha = 0.9
+	T = 1
+	T_min = 0.0001
+	#alpha = 0.999
 
 	beginStations = random.sample(stations, aantalTrajecten)
 
@@ -141,18 +141,21 @@ def SimulatedAnnealing(trajectTijd, aantalTrajecten):
 	currentState = lijnvoering(trajectTijd, beginStations)
 	currentScore = scoreLijnvoering(currentState)
 	archief = [sorted(beginStations)]
+	maxScore = 0
 	
 	# C houdt bij hoevaak achter elkaar er geen betere oplossing is
-	c = 0
-	aantal_interaties = 0
+	#c = 0
+	aantal_iteraties = 0
 	y_waardes = []
 
 	# Stop bij minimumtemperatuur
 	while T > T_min:
 		# Stop als er 100 keer achter elkaar geen betere oplossing is gevonden
-		while c < 1000:
-			aantal_interaties += 1
-			y_waardes.append(currentScore)
+		c = 0
+		y_waardes.append(maxScore)
+		aantal_iteraties += 1
+		while c < 100:
+			#aantal_iteraties += 1
 			index = random.randint(0, (aantalTrajecten - 1)) 
 			station = random.choice(stations)
 
@@ -172,18 +175,21 @@ def SimulatedAnnealing(trajectTijd, aantalTrajecten):
 
 				# Bereken acceptatiekans
 				a = acceptance(currentScore, newScore, T)
+				print currentScore, newScore, a
 
 				if a > random.random():
 					currentState = newState
 					currentScore = newScore
 					beginStations = nieuweStations
 
+					if newScore > maxScore:
+						maxScore = newScore
+
 			c += 1
 
-		T = alpha * T
+		T = T - 0.001
 
-	#grafiek(y_waardes, aantal_interaties)
+	grafiek(y_waardes, aantal_iteraties)
 
-	return currentScore, beginStations
+print(SimulatedAnnealing(120,7))
 
-print(SimulatedAnnealing(180,10))
