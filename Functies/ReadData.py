@@ -1,11 +1,8 @@
 import csv
 
-stations = []
-stationsKritiek = []
-
 def inlezenStations(csvBestand):
-
-
+    stations = []
+    stationsKritiek = []
     with open(csvBestand, 'r') as csvfile:
         reader = csv.reader(csvfile, delimiter=',')
         for row in reader:
@@ -16,10 +13,39 @@ def inlezenStations(csvBestand):
 
     return stations, stationsKritiek
 
-verbinding = {}
-verbindingKritiek = []
+# Class voor Noord- en Zuid-Holland aanmaken
+class hollandClass:
+    stations = inlezenStations('Data/StationsHolland.csv')[0]
+    stationsKritiek = inlezenStations('Data/StationsHolland.csv')[1]
 
-def inlezenVerbindingen(csvBestand):
+    def __init__(self):
+        self.verbinding = {}
+        self.verbindingKritiek = {}
+
+    def addVerbinding(self, verbindingen):
+        self.verbinding = verbindingen
+
+    def addVerbindingKritiek(self, verbindingen):
+        self.verbindingKritiek = verbindingen
+
+# Class voor Nederland aanmaken
+class nederlandClass:
+    stations = inlezenStations('Data/StationsNationaal.csv')[0]
+    stationsKritiek = inlezenStations('Data/StationsNationaal.csv')[1]
+
+    def __init__(self):
+        self.verbinding = {}
+        self.verbindingKritiek = {}
+
+    def addVerbinding(self, verbindingen):
+        self.verbinding = verbindingen
+
+    def addVerbindingKritiek(self, verbindingen):
+        self.verbindingKritiek = verbindingen
+
+def inlezenVerbindingen(csvBestand, classname):
+    verbinding = {}
+    verbindingKritiek = []
     with open(csvBestand, 'r') as csvfile:    
         reader = csv.reader(csvfile, delimiter=',')
         for row in reader:
@@ -28,7 +54,16 @@ def inlezenVerbindingen(csvBestand):
             verbinding[row[1]] = verbinding.get(row[1], []) + [(float(row[2]), row[0])]
 
             # Maak een lijst van alle kritieke verbindingen
-            if row[0] in stationsKritiek or row[1] in stationsKritiek:
+            if row[0] in classname.stationsKritiek or row[1] in classname.stationsKritiek:
                 verbindingKritiek.append((row[0], row[1]))
 
     return verbinding, verbindingKritiek
+
+# Verbindingen toevoegen aan classes
+Holland = hollandClass()
+Holland.addVerbinding(inlezenVerbindingen('Data/ConnectiesHolland.csv', Holland)[0])
+Holland.addVerbindingKritiek(inlezenVerbindingen('Data/ConnectiesHolland.csv', Holland)[1])
+
+Nederland = nederlandClass()
+Nederland.addVerbinding(inlezenVerbindingen('Data/ConnectiesNationaal.csv', Nederland)[0])
+Nederland.addVerbindingKritiek(inlezenVerbindingen('Data/ConnectiesNationaal.csv', Nederland)[1])
