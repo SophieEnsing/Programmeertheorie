@@ -37,13 +37,13 @@ elif programmaKeuze == "2":
 	if classKeuze == "1":
 		print(hillClimber(120, 7, Holland))
 	elif classKeuze == "2":
-		print(hillClimber(120, 7, Nederland))
+		print(hillClimber(180, 20, Nederland))
 
 elif programmaKeuze == "3":
 	if classKeuze == "1":
 		print(simulatedAnnealing(120, 7, Holland))
 	elif classKeuze == "2":
-		print(simulatedAnnealing(120, 7, Nederland))
+		print(simulatedAnnealing(180, 20, Nederland))
 
 elif programmaKeuze == "4":
 	if classKeuze == "1":

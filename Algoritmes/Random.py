@@ -28,10 +28,18 @@ def randomAlgoritme(iteraties, classname):
 	global tijd
 	global route
 
+	if classname == Holland:
+		maxTrajecten = 7
+		maxMinutes = 120
+
+	elif classname == Nederland:
+		maxTrajecten = 20
+		maxMinutes = 180
+
 	lijnvoeringen = []
 
 	for i in range(iteraties):
-		trajectAantal = random.randint(1,7)
+		trajectAantal = random.randint(1,maxTrajecten)
 		beginstations = random.sample(classname.stations, trajectAantal)
 
 		lijnvoering = []
@@ -39,7 +47,7 @@ def randomAlgoritme(iteraties, classname):
 		for station in beginstations:
 			tijd = 0
 			route = []
-			lijnvoering.append(randomRoute(station, 120, classname))
+			lijnvoering.append(randomRoute(station, maxMinutes, classname))
 
 		score = scoreLijnvoering(lijnvoering, classname)
 
