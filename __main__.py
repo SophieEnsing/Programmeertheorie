@@ -35,7 +35,8 @@ if programmaKeuze == "1":
 
 elif programmaKeuze == "2":
 	if classKeuze == "1":
-		print(hillClimber(120, 7, Holland))
+		print(hillClimber(120, 7, Holland, shortKritiek))
+		print(hillClimber(120, 7, Holland, randomRoute))
 	elif classKeuze == "2":
 		print(hillClimber(180, 20, Nederland))
 
