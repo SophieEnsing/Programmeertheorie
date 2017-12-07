@@ -7,10 +7,10 @@ import matplotlib.pyplot as plt
 from Functies.Score import *
 from Functies.ShortKritiek import *
 
-# def grafiek(y_waardes, aantal_interaties):
-# 	plt.plot(range(0,aantal_interaties), y_waardes)
-# 	plt.axis([0, aantal_interaties, 0, 10000])
-# 	plt.show()
+def grafiek(y_waardes, aantal_interaties):
+	plt.plot(range(0,aantal_interaties), y_waardes)
+	plt.axis([0, aantal_interaties, 0, 10000])
+	plt.show()
 
 def acceptance(old, new, T):
 	a = np.exp((new - old) / T)
@@ -28,21 +28,23 @@ def simulatedAnnealing(trajectTijd, aantalTrajecten, classname):
 	currentScore = scoreLijnvoering(currentState, classname)
 	archief = [sorted(beginStations)]
 	maxScore = 0
+	newScore = 0
 	bestStations = []
 	
 	# C houdt bij hoevaak achter elkaar er geen betere oplossing is
 	aantal_iteraties = 0
 	y_waardes = []
+	max_waardes = []
 
 	# Stop bij minimumtemperatuur
 	while T > T_min:
 		# Stop als er 100 keer achter elkaar geen betere oplossing is gevonden
 		c = 0
-		y_waardes.append(maxScore)
-		#aantal_iteraties += 1
+		aantal_iteraties += 1
+		y_waardes.append(newScore)
+		max_waardes.append(maxScore)
 
 		while c < 100:
-			#aantal_iteraties += 1
 			index = random.randint(0, (aantalTrajecten - 1)) 
 			station = random.choice(classname.stations)
 
@@ -78,4 +80,6 @@ def simulatedAnnealing(trajectTijd, aantalTrajecten, classname):
 		T = T - 0.01
 
 	#grafiek(y_waardes, aantal_iteraties)
+	#grafiek(max_waardes, aantal_iteraties)
+	
 	return maxScore

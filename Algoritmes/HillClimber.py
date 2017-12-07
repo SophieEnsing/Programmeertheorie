@@ -1,6 +1,12 @@
 import random
+import matplotlib.pyplot as plt 
 from Functies.ShortKritiek import *
 from Functies.Score import *
+
+def grafiek(y_waardes, aantal_interaties):
+	plt.plot(range(0,aantal_interaties), y_waardes)
+	plt.axis([0, aantal_interaties, 0, 10000])
+	plt.show()
 
 def hillClimber(trajectTijd, aantalTrajecten, classname):
 	""" Maak een random combinate van trajecten als start state
@@ -18,9 +24,14 @@ def hillClimber(trajectTijd, aantalTrajecten, classname):
 	
 	# C houdt bij hoevaak achter elkaar er geen betere oplossing is
 	c = 0
+	aantal_iteraties = 0
+	scores = []
 
 	# Stop als er 1000 keer achter elkaar geen betere oplossing is gevonden
 	while c < 1000:
+		aantal_iteraties += 1
+		scores.append(currentScore)
+
 		index = random.randint(0, (aantalTrajecten - 1)) 
 		station = random.choice(classname.stations)
 
