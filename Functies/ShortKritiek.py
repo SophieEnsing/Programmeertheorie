@@ -37,7 +37,7 @@ def shortKritiek(station, trajectTijd, classname):
 
 	return route, tijd
 
-def lijnvoering(trajectTijd, beginStations, classname, trajectFunctie):
+def lijnvoering(trajectTijd, beginStations, classname):
 	"""" Maakt een lijnvoering van verschillende trajecten
 	Trajecttijd: maximale tijd in minuten per traject
 	Aantaltrajecten: aantal trajecten in de lijnvoering"""
@@ -51,6 +51,6 @@ def lijnvoering(trajectTijd, beginStations, classname, trajectFunctie):
 	for station in beginStations:
 		tijd = 0
 		route = []
-		trajecten.append(trajectFunctie(station, trajectTijd, classname))
+		trajecten.append(shortKritiek(station, trajectTijd, classname))
 
 	return trajecten

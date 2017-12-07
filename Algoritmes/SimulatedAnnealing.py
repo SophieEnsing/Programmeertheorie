@@ -16,7 +16,7 @@ def acceptance(old, new, T):
 	a = np.exp((new - old) / T)
 	return a
 
-def simulatedAnnealing(trajectTijd, aantalTrajecten, classname, trajectFunctie):
+def simulatedAnnealing(trajectTijd, aantalTrajecten, classname):
 	T = 1
 	T_min = 0.0001
 	#alpha = 0.999
@@ -24,7 +24,7 @@ def simulatedAnnealing(trajectTijd, aantalTrajecten, classname, trajectFunctie):
 	beginStations = random.sample(classname.stations, aantalTrajecten)
 
 	# Maak een begin state en archief aan
-	currentState = lijnvoering(trajectTijd, beginStations, classname, trajectFunctie)
+	currentState = lijnvoering(trajectTijd, beginStations, classname)
 	currentScore = scoreLijnvoering(currentState, classname)
 	archief = [sorted(beginStations)]
 	maxScore = 0
@@ -57,12 +57,12 @@ def simulatedAnnealing(trajectTijd, aantalTrajecten, classname, trajectFunctie):
 			# Check of de combinatie van stations niet in het archief staat
 			if nieuweStations not in archief:
 				archief.append(nieuweStations)
-				newState = lijnvoering(trajectTijd, nieuweStations, classname, trajectFunctie)
+				newState = lijnvoering(trajectTijd, nieuweStations, classname)
 				newScore = scoreLijnvoering(newState, classname)
 
 				# Bereken acceptatiekans
 				a = acceptance(currentScore, newScore, T)
-				#print currentScore, newScore, a
+				#print(currentScore, newScore, a)
 
 				if a > random.random():
 					currentState = newState

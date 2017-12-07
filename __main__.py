@@ -6,48 +6,60 @@ from Visualisatie.Network import *
 
 logo = """\
 
+
     __ _           _   _   _   _   _     
    |  _ \    _ _  ( ) | | | \ | | | |    
    | |_) |  / _ | | | | | |  \| | | |    
    |  _ <  | (| | | | | | | |\  | | |__ 
    |_| \_\  \_,_| |_| |_| |_| \_| |____|
 
-  
 """
 
 print(logo)
 
-print("1 = Random algoritme")
-print("2 = Hillclimber algoritme")
-print("3 = Simulated Annealing algoritme")
-print("4 = Visualiseer het netwerk")
-print("")
+continueVar = ""
 
-programmaKeuze = input("Welk programma wil je uitvoeren? ")
-print("")
-classKeuze = input("Voor alleen Noord- en Zuid-Holland kies 1 en voor heel Nederland kies 2. ")
+while continueVar == "" or continueVar == "j":
+	print("")
+	print("1 = Random algoritme")
+	print("2 = Hillclimber algoritme")
+	print("3 = Simulated Annealing algoritme")
+	print("4 = Visualiseer het netwerk")
+	print("")
 
-if programmaKeuze == "1":
-	if classKeuze == "1":
-		print(randomAlgoritme(1000, Holland, 120, 7))
-	elif classKeuze == "2":
-		print(randomAlgoritme(1000, Nederland, 180, 20))
+	programmaKeuze = input("Welk programma wil je uitvoeren? ")
+	print("")
+	classKeuze = input("Voor alleen Noord- en Zuid-Holland kies 1 en voor heel Nederland kies 2: ")
 
-elif programmaKeuze == "2":
-	if classKeuze == "1":
-		#print(hillClimber(120, 7, Holland, shortKritiek))
-		print(hillClimber(120, 7, Holland, randomRoute))
-	elif classKeuze == "2":
-		print(hillClimber(180, 20, Nederland))
+	if programmaKeuze == "1":
+		if classKeuze == "1":
+			print("")
+			print("Score Holland: ", randomAlgoritme(1000, Holland, 120, 7))
+		elif classKeuze == "2":
+			print("")
+			print("Score Nederland: ", randomAlgoritme(1000, Nederland, 180, 20))
 
-elif programmaKeuze == "3":
-	if classKeuze == "1":
-		print(simulatedAnnealing(120, 7, Holland, randomRoute))
-	elif classKeuze == "2":
-		print(simulatedAnnealing(180, 20, Nederland))
+	elif programmaKeuze == "2":
+		if classKeuze == "1":
+			print("")
+			print("Score Holland: ", hillClimber(120, 7, Holland))
+		elif classKeuze == "2":
+			print("")
+			print("Score Nederland: ", hillClimber(180, 20, Nederland))
 
-elif programmaKeuze == "4":
-	if classKeuze == "1":
-		visualisatie('Data/StationsHolland.csv', 'Data/ConnectiesHolland.csv')
-	elif classKeuze == "2":
-		visualisatie('Data/StationsNationaal.csv', 'Data/ConnectiesNationaal.csv')
+	elif programmaKeuze == "3":
+		if classKeuze == "1":
+			print("")
+			print("Score Holland: ", simulatedAnnealing(120, 7, Holland))
+		elif classKeuze == "2":
+			print("")
+			print("Score Nederland: ", simulatedAnnealing(180, 20, Nederland))
+
+	elif programmaKeuze == "4":
+		if classKeuze == "1":
+			visualisatie('Data/StationsHolland.csv', 'Data/ConnectiesHolland.csv')
+		elif classKeuze == "2":
+			visualisatie('Data/StationsNationaal.csv', 'Data/ConnectiesNationaal.csv')
+
+	print("")
+	continueVar = input("Druk 'j' om nog een algoritme te runnen, druk 'n' om te stoppen: ")
