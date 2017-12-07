@@ -29,9 +29,9 @@ classKeuze = input("Voor alleen Noord- en Zuid-Holland kies 1 en voor heel Neder
 
 if programmaKeuze == 1:
 	if classKeuze == 1:
-		print(randomAlgoritme(1000, Holland))
+		print(randomAlgoritme(1000, Holland, 120, 7))
 	elif classKeuze == 2:
-		print(randomAlgoritme(1000, Nederland))
+		print(randomAlgoritme(1000, Nederland, 180, 20))
 
 elif programmaKeuze == 2:
 	if classKeuze == 1:

@@ -24,22 +24,14 @@ def randomRoute(station, trajectTijd, classname):
 
 	return route, tijd
 
-def randomAlgoritme(iteraties, classname):
+def randomAlgoritme(iteraties, classname, maxMinutes, maxTrajecten):
 	global tijd
 	global route
-
-	if classname == Holland:
-		maxTrajecten = 7
-		maxMinutes = 120
-
-	elif classname == Nederland:
-		maxTrajecten = 20
-		maxMinutes = 180
 
 	lijnvoeringen = []
 
 	for i in range(iteraties):
-		trajectAantal = random.randint(1,maxTrajecten)
+		trajectAantal = random.randint(1, maxTrajecten)
 		beginstations = random.sample(classname.stations, trajectAantal)
 
 		lijnvoering = []
