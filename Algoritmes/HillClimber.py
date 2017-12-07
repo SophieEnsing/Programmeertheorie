@@ -35,7 +35,7 @@ def hillClimber(trajectTijd, aantalTrajecten, classname, trajectFunctie):
 		# Check of de combinatie van stations niet in het archief staat
 		if nieuweStations not in archief:
 			archief.append(nieuweStations)
-			newState = lijnvoering(trajectTijd, nieuweStations, classname)
+			newState = lijnvoering(trajectTijd, nieuweStations, classname, trajectFunctie)
 			newScore = scoreLijnvoering(newState, classname)
 
 			# Check of de score beter is
