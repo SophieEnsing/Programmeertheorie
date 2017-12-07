@@ -23,9 +23,9 @@ print("3 = Simulated Annealing algoritme")
 print("4 = Visualiseer het netwerk")
 print("")
 
-programmaKeuze = raw_input("Welk programma wil je uitvoeren? ")
+programmaKeuze = input("Welk programma wil je uitvoeren? ")
 print("")
-classKeuze = raw_input("Voor alleen Noord- en Zuid-Holland kies 1 en voor heel Nederland kies 2. ")
+classKeuze = input("Voor alleen Noord- en Zuid-Holland kies 1 en voor heel Nederland kies 2. ")
 
 if programmaKeuze == "1":
 	if classKeuze == "1":
