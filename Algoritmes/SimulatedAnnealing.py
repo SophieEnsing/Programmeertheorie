@@ -16,7 +16,7 @@ def acceptance(old, new, T):
 	a = np.exp((new - old) / T)
 	return a
 
-def simulatedAnnealing(trajectTijd, aantalTrajecten, classname):
+def simulatedAnnealing(trajectTijd, aantalTrajecten, classname, trajectFunctie):
 	T = 1
 	T_min = 0.0001
 	#alpha = 0.999
