@@ -20,7 +20,7 @@ def hillClimber(trajectTijd, aantalTrajecten, classname, trajectFunctie):
 	c = 0
 
 	# Stop als er 100 keer achter elkaar geen betere oplossing is gevonden
-	while c < 1000:
+	while c < 10:
 		index = random.randint(0, (aantalTrajecten - 1)) 
 		station = random.choice(classname.stations)
 
