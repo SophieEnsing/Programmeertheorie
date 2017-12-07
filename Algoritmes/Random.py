@@ -47,5 +47,5 @@ def randomAlgoritme(iteraties, classname, maxMinutes, maxTrajecten):
 
 	lijnvoeringen.sort(key=lambda tup: tup[1])
 
-	return lijnvoeringen[-1]
+	return lijnvoeringen[-1][1]
 

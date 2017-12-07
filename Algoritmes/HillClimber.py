@@ -48,6 +48,6 @@ def hillClimber(trajectTijd, aantalTrajecten, classname):
 			else:
 				c += 1
 
-	return currentScore, beginStations
+	return currentScore
 
 

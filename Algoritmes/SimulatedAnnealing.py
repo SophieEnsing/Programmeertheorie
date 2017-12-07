@@ -78,4 +78,4 @@ def simulatedAnnealing(trajectTijd, aantalTrajecten, classname):
 		T = T - 0.01
 
 	#grafiek(y_waardes, aantal_iteraties)
-	return maxScore, nieuweStations
+	return maxScore
