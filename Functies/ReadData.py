@@ -3,10 +3,14 @@ import csv
 def inlezenStations(csvBestand):
     stations = []
     stationsKritiek = []
+    coordinaten = {}
+
     with open(csvBestand, 'r') as csvfile:
         reader = csv.reader(csvfile, delimiter=',')
         for row in reader:
             stations.append(row[0])
+            coordinaten[row[0]] = (float(row[1]), float(row[2]))
+
             if row[3] == 'Kritiek':
                 # Voeg alle kritieke stations toe aan een lijst
                 stationsKritiek.append(row[0])
@@ -28,6 +32,7 @@ class hollandClass:
     def addVerbindingKritiek(self, verbindingen):
         self.verbindingKritiek = verbindingen
 
+
 # Class voor Nederland aanmaken
 class nederlandClass:
     stations = inlezenStations('Data/StationsNationaal.csv')[0]
@@ -46,6 +51,7 @@ class nederlandClass:
 def inlezenVerbindingen(csvBestand, classname):
     verbinding = {}
     verbindingKritiek = []
+
     with open(csvBestand, 'r') as csvfile:    
         reader = csv.reader(csvfile, delimiter=',')
         for row in reader:
@@ -59,7 +65,7 @@ def inlezenVerbindingen(csvBestand, classname):
 
     return verbinding, verbindingKritiek
 
-# Verbindingen toevoegen aan classes
+# Verbindingen en gewichten toevoegen aan classes
 Holland = hollandClass()
 Holland.addVerbinding(inlezenVerbindingen('Data/ConnectiesHolland.csv', Holland)[0])
 Holland.addVerbindingKritiek(inlezenVerbindingen('Data/ConnectiesHolland.csv', Holland)[1])
