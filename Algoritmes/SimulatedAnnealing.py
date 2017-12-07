@@ -24,7 +24,7 @@ def simulatedAnnealing(trajectTijd, aantalTrajecten, classname, trajectFunctie):
 	beginStations = random.sample(classname.stations, aantalTrajecten)
 
 	# Maak een begin state en archief aan
-	currentState = lijnvoering(trajectTijd, beginStations, classname)
+	currentState = lijnvoering(trajectTijd, beginStations, classname, trajectFunctie)
 	currentScore = scoreLijnvoering(currentState, classname)
 	archief = [sorted(beginStations)]
 	maxScore = 0
