@@ -1,4 +1,5 @@
 import random
+from Algoritmes.Random import *
 
 tijd = 0
 route = []
@@ -36,7 +37,7 @@ def shortKritiek(station, trajectTijd, classname):
 
 	return route, tijd
 
-def lijnvoering(trajectTijd, beginStations, classname):
+def lijnvoering(trajectTijd, beginStations, classname, trajectFunctie):
 	"""" Maakt een lijnvoering van verschillende trajecten
 	Trajecttijd: maximale tijd in minuten per traject
 	Aantaltrajecten: aantal trajecten in de lijnvoering"""
@@ -47,9 +48,9 @@ def lijnvoering(trajectTijd, beginStations, classname):
 	global route
 
 	# Maak voor elk beginstation een traject
-	for stat in beginStations:
+	for station in beginStations:
 		tijd = 0
 		route = []
-		trajecten.append(shortKritiek(stat, trajectTijd, classname))
+		trajecten.append(trajectFunctie(station, trajectTijd, classname))
 
 	return trajecten

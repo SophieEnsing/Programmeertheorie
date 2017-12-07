@@ -2,7 +2,7 @@ import random
 from Functies.ShortKritiek import *
 from Functies.Score import *
 
-def hillClimber(trajectTijd, aantalTrajecten, classname):
+def hillClimber(trajectTijd, aantalTrajecten, classname, trajectFunctie):
 	""" Maak een random combinate van trajecten als start state
 	en verander elke keer 1 beginstation. Neem de verandering aan
 	als het beter is en anders door naar een volgende optie. In het
@@ -12,7 +12,7 @@ def hillClimber(trajectTijd, aantalTrajecten, classname):
 	beginStations = random.sample(classname.stations, aantalTrajecten)
 
 	# Maak een begin state en archief aan
-	currentState = lijnvoering(trajectTijd, beginStations, classname)
+	currentState = lijnvoering(trajectTijd, beginStations, classname, trajectFunctie)
 	currentScore = scoreLijnvoering(currentState, classname)
 	archief = [sorted(beginStations)]
 	
