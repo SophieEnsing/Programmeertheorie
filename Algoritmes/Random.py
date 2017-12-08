@@ -10,10 +10,12 @@ def randomRoute(station, trajectTijd, classname):
 
 	route.append(station)
 
-	verbindingen = [ (afstand, eindstation) for afstand, eindstation in classname.verbinding[station] if eindstation not in route ]
+	verbindingen = [ (afstand, eindstation) for afstand, eindstation 
+						in classname.verbinding[station] if eindstation not in route ]
 
 	if len(verbindingen) >= 1:
 		gekozenVerbinding = random.choice(verbindingen)
+
 	else:
 		return route, tijd
 
@@ -32,7 +34,7 @@ def randomAlgoritme(iteraties, classname, maxMinutes, maxTrajecten):
 
 	for i in range(iteraties):
 		trajectAantal = random.randint(1, maxTrajecten)
-		beginstations = random.sample(classname.stations, trajectAantal)
+		beginstations = random.sample(classname.stations, maxTrajecten)
 
 		lijnvoering = []
 
@@ -42,10 +44,8 @@ def randomAlgoritme(iteraties, classname, maxMinutes, maxTrajecten):
 			lijnvoering.append(randomRoute(station, maxMinutes, classname))
 
 		score = scoreLijnvoering(lijnvoering, classname)
-
 		lijnvoeringen.append((lijnvoering, score))
 
 	lijnvoeringen.sort(key=lambda tup: tup[1])
-
-	return lijnvoeringen[-1][1]
-
+	
+	return lijnvoeringen[-1]

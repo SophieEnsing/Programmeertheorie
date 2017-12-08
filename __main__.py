@@ -3,9 +3,9 @@ from Algoritmes.Random import *
 from Algoritmes.SimulatedAnnealing import *
 from Functies.ReadData import *
 from Visualisatie.Network import *
+from Functies.Score import *
 
 logo = """\
-
 
     __ _           _   _   _   _   _     
    |  _ \    _ _  ( ) | | | \ | | | |    
