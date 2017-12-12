@@ -26,15 +26,20 @@ def randomRoute(station, trajectTijd, classname):
 
 	return route, tijd
 
-def randomAlgoritme(iteraties, classname, maxMinutes, maxTrajecten):
+def randomAlgoritme(iteraties, classname, maxMinutes, maxTrajecten, kritiek):
 	global tijd
 	global route
 
 	lijnvoeringen = []
 
 	for i in range(iteraties):
-		trajectAantal = random.randint(1, maxTrajecten)
-		beginstations = random.sample(classname.stations, maxTrajecten)
+		trajectAantal = random.randint(1, (maxTrajecten - 2))
+		randomStations = random.sample(classname.stations, trajectAantal)
+		
+		while 'Dordrecht' in randomStations or 'Den Helder' in randomStations:
+			randomStations = random.sample(classname.stations, trajectAantal)
+
+		beginstations = ['Dordrecht', 'Den Helder'] + randomStations
 
 		lijnvoering = []
 
@@ -43,7 +48,7 @@ def randomAlgoritme(iteraties, classname, maxMinutes, maxTrajecten):
 			route = []
 			lijnvoering.append(randomRoute(station, maxMinutes, classname))
 
-		score = scoreLijnvoering(lijnvoering, classname)
+		score = scoreLijnvoering(lijnvoering, classname, kritiek)
 		lijnvoeringen.append((lijnvoering, score))
 
 	lijnvoeringen.sort(key=lambda tup: tup[1])

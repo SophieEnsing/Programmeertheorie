@@ -54,6 +54,7 @@ def inlezenVerbindingen(csvBestand, classname):
 
     with open(csvBestand, 'r') as csvfile:    
         reader = csv.reader(csvfile, delimiter=',')
+        
         for row in reader:
             # Alle verbindingen toevoegen per station in een dictionary
             verbinding[row[0]] = verbinding.get(row[0], []) + [(float(row[2]), row[1])]

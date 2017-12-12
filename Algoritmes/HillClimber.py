@@ -8,7 +8,7 @@ def grafiek(y_waardes, aantal_interaties):
 	plt.axis([0, aantal_interaties, 0, 10000])
 	plt.show()
 
-def hillClimber(trajectTijd, aantalTrajecten, classname):
+def hillClimber(trajectTijd, aantalTrajecten, classname, kritiek):
 	""" Maak een random combinate van trajecten als start state
 	en verander elke keer 1 beginstation. Neem de verandering aan
 	als het beter is en anders door naar een volgende optie. In het
@@ -19,7 +19,7 @@ def hillClimber(trajectTijd, aantalTrajecten, classname):
 
 	# Maak een begin state en archief aan
 	currentState = lijnvoering(trajectTijd, beginStations, classname)
-	currentScore = scoreLijnvoering(currentState, classname)
+	currentScore = scoreLijnvoering(currentState, classname, kritiek)
 	archief = [sorted(beginStations)]
 	
 	# C houdt bij hoevaak achter elkaar er geen betere oplossing is
@@ -47,7 +47,7 @@ def hillClimber(trajectTijd, aantalTrajecten, classname):
 		if nieuweStations not in archief:
 			archief.append(nieuweStations)
 			newState = lijnvoering(trajectTijd, nieuweStations, classname)
-			newScore = scoreLijnvoering(newState, classname)
+			newScore = scoreLijnvoering(newState, classname, kritiek)
 
 			# Check of de score beter is
 			if newScore > currentScore:

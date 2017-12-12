@@ -1,6 +1,6 @@
 from __future__ import division
 
-def scoreLijnvoering(lijnvoering, classname):
+def scoreLijnvoering(lijnvoering, classname, kritiek):
 	""" Bereken de score van de lijnvoering
 	Score functie S > S = p*10000 - (t*20 + min/100000)
 	"""
