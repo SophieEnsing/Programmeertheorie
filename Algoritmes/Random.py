@@ -4,9 +4,12 @@ from Functies.Score import *
 tijd = 0
 route = []
 
-def randomRoute(station, trajectTijd, classname):
+def randomRoute(station, trajectTijd, classname, beginTraject):
 	global tijd
 	global route
+
+	if beginTraject != []:
+		route += beginTraject
 
 	route.append(station)
 
@@ -22,7 +25,7 @@ def randomRoute(station, trajectTijd, classname):
 	if tijd + int(gekozenVerbinding[0]) < trajectTijd:
 		station = gekozenVerbinding[1]
 		tijd += int(gekozenVerbinding[0])
-		randomRoute(station, trajectTijd, classname)
+		randomRoute(station, trajectTijd, classname, [])
 
 	return route, tijd
 
@@ -46,7 +49,7 @@ def randomAlgoritme(iteraties, classname, maxMinutes, maxTrajecten, kritiek):
 		for station in beginstations:
 			tijd = 0
 			route = []
-			lijnvoering.append(randomRoute(station, maxMinutes, classname))
+			lijnvoering.append(randomRoute(station, maxMinutes, classname, []))
 
 		score = scoreLijnvoering(lijnvoering, classname, kritiek)
 		lijnvoeringen.append((lijnvoering, score))
