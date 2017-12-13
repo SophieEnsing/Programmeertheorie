@@ -82,7 +82,7 @@ def simulatedAnnealing(trajectTijd, aantalTrajecten, classname, kritiek):
 	return maxScore
 
 #
-# SIMULATED ANNEALING 1
+# SIMULATED ANNEALING 2
 #
 
 def simulatedAnnealing2(trajectTijd, aantalTrajecten, classname, kritiek):
