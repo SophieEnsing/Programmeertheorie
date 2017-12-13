@@ -3,14 +3,10 @@ import random
 import numpy as np
 import csv
 import math
-import matplotlib.pyplot as plt 
 from Functies.Score import *
 from Functies.ShortKritiek import *
-
-def grafiek(y_waardes, aantal_interaties):
-	plt.plot(range(0,aantal_interaties), y_waardes)
-	plt.axis([0, aantal_interaties, 0, 10000])
-	plt.show()
+from Functies.Staart import *
+from Functies.Grafiek import *
 
 def acceptance(old, new, T):
 	a = np.exp((new - old) / T)
@@ -19,7 +15,6 @@ def acceptance(old, new, T):
 def simulatedAnnealing(trajectTijd, aantalTrajecten, classname, kritiek):
 	T = 1
 	T_min = 0.0001
-	#alpha = 0.999
 
 	beginStations = random.sample(classname.stations, aantalTrajecten)
 
