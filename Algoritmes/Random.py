@@ -1,16 +1,7 @@
 import random
 from Functies.Score import *
 
-tijd = 0
-route = []
-
-def randomRoute(station, trajectTijd, classname, beginTraject):
-	global tijd
-	global route
-
-	if beginTraject != []:
-		route += beginTraject
-
+def randomRoute(station, trajectTijd, classname, tijd, route):
 	route.append(station)
 
 	verbindingen = [ (afstand, eindstation) for afstand, eindstation 
@@ -22,34 +13,31 @@ def randomRoute(station, trajectTijd, classname, beginTraject):
 	else:
 		return route, tijd
 
-	if tijd + int(gekozenVerbinding[0]) < trajectTijd:
+	if tijd + int(gekozenVerbinding[0]) <= trajectTijd:
 		station = gekozenVerbinding[1]
 		tijd += int(gekozenVerbinding[0])
-		randomRoute(station, trajectTijd, classname, [])
-
+		route, tijd = randomRoute(station, trajectTijd, classname, tijd, route)
+	
 	return route, tijd
 
 def randomAlgoritme(iteraties, classname, maxMinutes, maxTrajecten, kritiek):
-	global tijd
-	global route
-
 	lijnvoeringen = []
 
 	for i in range(iteraties):
-		trajectAantal = random.randint(1, (maxTrajecten - 2))
+		trajectAantal = random.randint(1, (maxTrajecten))
 		randomStations = random.sample(classname.stations, trajectAantal)
 		
-		while 'Dordrecht' in randomStations or 'Den Helder' in randomStations:
-			randomStations = random.sample(classname.stations, trajectAantal)
+		# while 'Dordrecht' in randomStations or 'Den Helder' in randomStations:
+		# 	randomStations = random.sample(classname.stations, trajectAantal)
 
-		beginstations = ['Dordrecht', 'Den Helder'] + randomStations
+		# beginstations = ['Dordrecht', 'Den Helder'] + randomStations
 
 		lijnvoering = []
 
-		for station in beginstations:
+		for station in randomStations:
 			tijd = 0
 			route = []
-			lijnvoering.append(randomRoute(station, maxMinutes, classname, []))
+			lijnvoering.append(randomRoute(station, maxMinutes, classname, tijd, route))
 
 		score = scoreLijnvoering(lijnvoering, classname, kritiek)
 		lijnvoeringen.append((lijnvoering, score))

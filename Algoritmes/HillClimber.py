@@ -3,6 +3,7 @@ from Functies.ShortKritiek import *
 from Functies.Score import *
 from Functies.Staart import *
 from Functies.Grafiek import *
+from Algoritmes.Random import *
 
 #
 # HILLCLIMBER 1
@@ -65,39 +66,38 @@ def hillClimber(trajectTijd, aantalTrajecten, classname, kritiek):
 # HILLCLIMBER 2
 #
 
-def hillClimber2(trajectTijd, aantalTrajecten, classname):
-	""" Maak een random combinate van trajecten als start state
-	en verander elke keer 1 beginstation. Neem de verandering aan
-	als het beter is en anders door naar een volgende optie. In het
-	archief wordt bijgehouden of niet dezelfde combinaties geprobeerd
-	worden. 
+def hillClimber2(trajectTijd, aantalTrajecten, classname, kritiek):
+	""" Maak een random begin status door middel van het random 
+	algoritme. Vervolgens wordt er door middel van de hulpfunctie
+	staart in een van de trajecten een aanpassing gemaakt. Van de 
+	nieuwe staat wordt de score berekend. Neem de verandering aan
+	als het beter is en anders door naar een volgende optie.
 	"""
-	beginStations = random.sample(classname.stations, aantalTrajecten)
 
 	# Maak een begin state en archief aan
-	currentState = lijnvoering(trajectTijd, beginStations)
-	currentScore = scoreLijnvoering(currentState)
-	archief = [sorted(beginStations)]
-	
+	beginState = randomAlgoritme(1, classname, trajectTijd, aantalTrajecten, kritiek)
+	currentState = beginState[0]
+	currentScore = beginState[1]
+
 	# C houdt bij hoevaak achter elkaar er geen betere oplossing is
 	aantal_interaties = 0
 	y_waardes = []
 	c = 0
 
 	# Stop als er 100 keer achter elkaar geen betere oplossing is gevonden
-	while c < 1000:
+	while c < 10000:
 		aantal_interaties += 1
 		y_waardes.append(currentScore)
 		newState = staart(currentState, classname, trajectTijd)
-		newScore = scoreLijnvoering(newState)
+		newScore = scoreLijnvoering(newState, classname, kritiek)
 
 		if newScore > currentScore:
 			currentState = newState
 			currentScore = newScore
-			beginStations = nieuweStations
 			c = 0
 
 		else:
 			c += 1
 
 	return currentState, currentScore
+

@@ -1,4 +1,5 @@
 import random
+from Algoritmes.Random import *
 
 def somTijd(traject, classname):
 	tijdLijst = []
@@ -11,15 +12,14 @@ def somTijd(traject, classname):
 	return trajectTijd
 
 def staart(lijnvoering, classname, trajectTijd):
-	indexTraject = random.randint(0, (len(lijnvoering) - 1))
-	indexStation = random.randint(0, (len(lijnvoering[indexTraject].values()[0][0]) - 2))
+	beginTraject = []
 
-	veranderTraject = lijnvoering[indexTraject].values()[0][0]
+	indexTraject = random.randint(0, (len(lijnvoering) - 1))
+	indexStation = random.randint(0, (len(lijnvoering[indexTraject][0]) - 2))
+
+	veranderTraject = lijnvoering[indexTraject][0]
 	veranderStation = veranderTraject[indexStation]
 	beginTraject = veranderTraject[:indexStation+1]
-
-	print veranderTraject
-	print beginTraject
 
 	tijd = somTijd(beginTraject, classname)
 
@@ -27,9 +27,7 @@ def staart(lijnvoering, classname, trajectTijd):
 			classname.verbinding[veranderStation] if eindstation != veranderTraject[indexStation + 1] and eindstation not in beginTraject]
 
 	if len(verbindingen) >= 1:
-		nieuweVerbinding = random.choice(verbindingen)
-		route = randomRoute(nieuweVerbinding[1], trajectTijd - tijd, classname, beginTraject)
-		beginTraject = route[0]
-		tijd += route[1]
+		route, tijd = randomRoute(veranderStation, trajectTijd, classname, tijd, beginTraject[:-1])
+		lijnvoering[indexTraject] = (route, tijd)
 
-	return beginTraject, tijd
+	return lijnvoering
