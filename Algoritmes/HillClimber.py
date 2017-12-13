@@ -80,14 +80,10 @@ def hillClimber2(trajectTijd, aantalTrajecten, classname, kritiek):
 	currentScore = beginState[1]
 
 	# C houdt bij hoevaak achter elkaar er geen betere oplossing is
-	aantal_interaties = 0
-	y_waardes = []
 	c = 0
 
 	# Stop als er 100 keer achter elkaar geen betere oplossing is gevonden
 	while c < 10000:
-		aantal_interaties += 1
-		y_waardes.append(currentScore)
 		newState = staart(currentState, classname, trajectTijd)
 		newScore = scoreLijnvoering(newState, classname, kritiek)
 

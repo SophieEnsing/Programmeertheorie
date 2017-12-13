@@ -2,7 +2,7 @@ from __future__ import division
 
 def scoreLijnvoering(lijnvoering, classname, kritiek):
 	""" Bereken de score van de lijnvoering
-	Score functie S > S = p*10000 - (t*20 + min/100000)
+	Score functie S > S = p*10000 - (t*20 + min/10000)
 	"""
 
 	verbindingen = []
@@ -25,5 +25,5 @@ def scoreLijnvoering(lijnvoering, classname, kritiek):
 	setTrajectParen = list(set([ tuple(sorted(t)) for t in verbindingen]))
 	percKritiek = len(setTrajectParen) / len(classname.verbindingKritiek)
 
-	S = (percKritiek * 10000) - ((aantalTrajecten * 20) + (aantalMinuten / 100000))
+	S = (percKritiek * 10000) - ((aantalTrajecten * 20) + (aantalMinuten / 10000))
 	return S

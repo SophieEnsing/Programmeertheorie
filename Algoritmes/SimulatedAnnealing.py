@@ -13,6 +13,7 @@ def acceptance(old, new, T):
 	return a
 
 def simulatedAnnealing(trajectTijd, aantalTrajecten, classname, kritiek):
+	"""BESCHRIJVING"""	
 	T = 1
 	T_min = 0.0001
 
@@ -73,8 +74,47 @@ def simulatedAnnealing(trajectTijd, aantalTrajecten, classname, kritiek):
 			c += 1
 
 		T = T - 0.01
-
-	#grafiek(y_waardes, aantal_iteraties)
-	#grafiek(max_waardes, aantal_iteraties)
 	
 	return maxScore
+
+def simulatedAnnealing2(trajectTijd, aantalTrajecten, classname, kritiek):
+	"""BESCHRIJVING"""
+	T = 1
+	T_0 = 1
+	T_min = 0.0001
+
+	beginState = randomAlgoritme(1, classname, trajectTijd, aantalTrajecten, kritiek)
+	currentState = beginState[0]
+	currentScore = beginState[1]
+
+	maxScore = 0
+	newScore = 0
+	besteLijnvoering = []
+	aantalIteraties = 0
+
+	# Stop bij minimumtemperatuur
+	while T > T_min:
+		# Stop als er 100 keer achter elkaar geen betere oplossing is gevonden
+		c = 0
+		aantalIteraties += 1
+		while c < 1000:
+			newState = staart(currentState, classname, trajectTijd)
+			newScore = scoreLijnvoering(newState, classname, kritiek)
+
+			# Bereken acceptatiekans
+			a = acceptance(currentScore, newScore, T)
+			print(a, currentScore, newScore)
+
+			if a > random.random():
+				currentState = newState
+				currentScore = newScore
+
+				if newScore > maxScore:
+					maxScore = newScore
+					besteLijnvoering = newState
+
+			c += 1
+
+		T = T_0 - ( aantalIteraties * ( (T_0 - T_min) / 1000) )
+	
+	return maxScore, besteLijnvoering
