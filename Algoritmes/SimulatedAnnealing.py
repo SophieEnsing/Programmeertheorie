@@ -12,6 +12,10 @@ def acceptance(old, new, T):
 	a = np.exp((new - old) / T)
 	return a
 
+#
+# SIMULATED ANNEALING 1
+#
+
 def simulatedAnnealing(trajectTijd, aantalTrajecten, classname, kritiek):
 	"""BESCHRIJVING"""	
 	T = 1
@@ -76,6 +80,10 @@ def simulatedAnnealing(trajectTijd, aantalTrajecten, classname, kritiek):
 		T = T - 0.01
 	
 	return maxScore
+
+#
+# SIMULATED ANNEALING 1
+#
 
 def simulatedAnnealing2(trajectTijd, aantalTrajecten, classname, kritiek):
 	"""BESCHRIJVING"""
