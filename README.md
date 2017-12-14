@@ -9,7 +9,7 @@ Deze case gaat over het maken van de lijnvoering van intercity treinen in Nederl
 
 ## Structuur
 
-In onze git zijn meerdere mappen te vinden met bestanden. In de map Data staan de csv bestanden waarin de gegevens staan van de stations en de connecties. In de map Algoritmes staan bestanden met de python code voor de algoritmes. In de map Functies staan de python functies die nodig zijn om de algoritmes uit te voeren. Hierin is worden tevens classes aangemaakt die door alle python bestanden geïmporteerd kunnen worden. Uiteindelijk komen alle bestanden uit die mappen samen in de __main__.py. Daarnaast is er nog de Resultaten map, waarin we een aantal csv bestanden hebben staan met scores van onze algoritmes. 
+In onze git zijn meerdere mappen te vinden met bestanden. In de map Data staan de csv bestanden waarin de gegevens staan van de stations en de connecties. In de map Algoritmes staan bestanden met de python code voor de algoritmes. In de map Functies staan de python functies die nodig zijn om de algoritmes uit te voeren. Hierin is worden tevens classes aangemaakt die door alle python bestanden geïmporteerd kunnen worden. Als laatste hebben we ook nog een map Visualisaties waarin de visualisaties van de station en verbindingen gemaakt kunnen worden. Uiteindelijk komen alle bestanden uit die mappen samen in de __main__.py. Daarnaast is er nog de Resultaten map, waarin we een aantal csv bestanden hebben staan met scores van onze algoritmes. 
 
 ## Running
 
