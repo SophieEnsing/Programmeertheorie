@@ -4,7 +4,7 @@ from Algoritmes.SimulatedAnnealing import *
 from Functies.ReadData import *
 from Visualisatie.Network import *
 
-classnaam = ""
+classnaam = Holland
 kritiekKeuze = False
 
 logo = """\

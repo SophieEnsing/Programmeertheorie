@@ -49,6 +49,7 @@ def hillClimber(trajectTijd, aantalTrajecten, classname, kritiek):
 			archief.append(nieuweStations)
 			newState = lijnvoering(trajectTijd, nieuweStations, classname)
 			newScore = scoreLijnvoering(newState, classname, kritiek)
+			print currentScore, newScore
 
 			# Check of de score beter is
 			if newScore > currentScore:
@@ -82,7 +83,7 @@ def hillClimber2(trajectTijd, aantalTrajecten, classname, kritiek):
 	# C houdt bij hoevaak achter elkaar er geen betere oplossing is
 	c = 0
 
-	# Stop als er 100 keer achter elkaar geen betere oplossing is gevonden
+	# Stop als er 10000 keer achter elkaar geen betere oplossing is gevonden
 	while c < 10000:
 		newState = staart(currentState, classname, trajectTijd)
 		newScore = scoreLijnvoering(newState, classname, kritiek)
@@ -95,5 +96,5 @@ def hillClimber2(trajectTijd, aantalTrajecten, classname, kritiek):
 		else:
 			c += 1
 
-	return currentState, currentScore
+	return currentScore
 

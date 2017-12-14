@@ -19,6 +19,7 @@ def acceptance(old, new, T):
 def simulatedAnnealing(trajectTijd, aantalTrajecten, classname, kritiek):
 	"""BESCHRIJVING"""	
 	T = 1
+	T_0 = 1
 	T_min = 0.0001
 
 	beginStations = random.sample(classname.stations, aantalTrajecten)
@@ -30,19 +31,13 @@ def simulatedAnnealing(trajectTijd, aantalTrajecten, classname, kritiek):
 	maxScore = 0
 	newScore = 0
 	bestStations = []
-	
-	# C houdt bij hoevaak achter elkaar er geen betere oplossing is
-	aantal_iteraties = 0
-	y_waardes = []
-	max_waardes = []
+	aantalIteraties = 0
 
 	# Stop bij minimumtemperatuur
 	while T > T_min:
 		# Stop als er 100 keer achter elkaar geen betere oplossing is gevonden
 		c = 0
-		aantal_iteraties += 1
-		y_waardes.append(newScore)
-		max_waardes.append(maxScore)
+		aantalIteraties += 1
 
 		while c < 100:
 			index = random.randint(0, (aantalTrajecten - 1)) 
@@ -77,7 +72,7 @@ def simulatedAnnealing(trajectTijd, aantalTrajecten, classname, kritiek):
 
 			c += 1
 
-		T = T - 0.01
+		T = T_0 - ( aantalIteraties * ( (T_0 - T_min) / 1000) )
 	
 	return maxScore
 
@@ -125,4 +120,4 @@ def simulatedAnnealing2(trajectTijd, aantalTrajecten, classname, kritiek):
 
 		T = T_0 - ( aantalIteraties * ( (T_0 - T_min) / 1000) )
 	
-	return maxScore, besteLijnvoering
+	return maxScore
