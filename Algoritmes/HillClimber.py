@@ -49,7 +49,6 @@ def hillClimber(trajectTijd, aantalTrajecten, classname, kritiek):
 			archief.append(nieuweStations)
 			newState = lijnvoering(trajectTijd, nieuweStations, classname)
 			newScore = scoreLijnvoering(newState, classname, kritiek)
-			print currentScore, newScore
 
 			# Check of de score beter is
 			if newScore > currentScore:

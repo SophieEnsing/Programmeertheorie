@@ -58,10 +58,7 @@ while continueVar == "" or continueVar == "j":
 		print("Score Holland: ", simulatedAnnealing(120, 7, classnaam, kritiekKeuze))
 
 	elif programmaKeuze == "4":
-		if classKeuze == "1":
-			visualisatie('Data/StationsHolland.csv', 'Data/ConnectiesHolland.csv')
-		elif classKeuze == "2":
-			visualisatie('Data/StationsNationaal.csv', 'Data/ConnectiesNationaal.csv')
+		visualisatie(classnaam)
 
 	print("")
 	continueVar = input("Druk 'j' om nog een algoritme te runnen, druk 'n' om te stoppen: ")
