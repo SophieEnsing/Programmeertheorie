@@ -24,13 +24,8 @@ def randomAlgoritme(iteraties, classname, maxMinutes, maxTrajecten, kritiek):
 	lijnvoeringen = []
 
 	for i in range(iteraties):
-		trajectAantal = random.randint(1, (maxTrajecten))
-		randomStations = random.sample(classname.stations, trajectAantal)
-		
-		# while 'Dordrecht' in randomStations or 'Den Helder' in randomStations:
-		# 	randomStations = random.sample(classname.stations, trajectAantal)
-
-		# beginstations = ['Dordrecht', 'Den Helder'] + randomStations
+		# trajectAantal = random.randint(1, (maxTrajecten))
+		randomStations = random.sample(classname.stations, maxTrajecten)
 
 		lijnvoering = []
 

@@ -6,6 +6,8 @@ from Visualisatie.Network import *
 
 classnaam = Holland
 kritiekKeuze = False
+maxTrajecten = 7
+maxTijd = 120
 
 logo = """\
 
@@ -37,8 +39,12 @@ while continueVar == "" or continueVar == "j":
 
 	if classKeuze == 1:
 		classnaam = Holland
+		maxTijd = 120
+		maxTrajecten = 7
 	elif classKeuze == 2:
 		classnaam = Nederland
+		maxTijd = 180
+		maxTrajecten = 20
 
 	if kritiekKeuze == 1:
 		kritiek = False
@@ -47,15 +53,15 @@ while continueVar == "" or continueVar == "j":
 
 	if programmaKeuze == "1":
 		print("")
-		print("Score Holland: ", randomAlgoritme(1000, classnaam, 120, 7, kritiekKeuze))
+		print("Score Holland: ", randomAlgoritme(1000, classnaam, maxTijd, maxTrajecten, kritiekKeuze))
 
 	elif programmaKeuze == "2":
 		print("")
-		print("Score Holland: ", hillClimber(120, 7, classnaam, kritiekKeuze))
+		print("Score Holland: ", hillClimber(maxTijd, maxTrajecten, classnaam, kritiekKeuze))
 
 	elif programmaKeuze == "3":
 		print("")
-		print("Score Holland: ", simulatedAnnealing(120, 7, classnaam, kritiekKeuze))
+		print("Score Holland: ", simulatedAnnealing(maxTijd, maxTrajecten, classnaam, kritiekKeuze))
 
 	elif programmaKeuze == "4":
 		visualisatie(classnaam)
