@@ -1,3 +1,7 @@
+# RailNL
+# Namen: Rosalie Snijders, Gavin Schipper & Sophie Ensing
+# Groepsnaam: Brogrammers
+
 from Algoritmes.HillClimber import *
 from Algoritmes.Random import *
 from Algoritmes.SimulatedAnnealing import *
