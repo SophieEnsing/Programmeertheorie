@@ -35,3 +35,7 @@ Bij de hill climber met de random instelling ligt de piek hoger, namelijk tussen
 
 ### Nederland
 <img src=https://github.com/SophieEnsing/Programmeertheorie/blob/master/Resultaten/doc/4.png width="400"> <img src=https://github.com/SophieEnsing/Programmeertheorie/blob/master/Resultaten/doc/5.png width="400">
+
+De vier grafieken hierboven vormen samen een representatie van hoe de twee verschillende versies van het simulated annealing algoritme werken ten opzichte van elkaar. Het gaat hierbij om het random simulated annealing algoritme en het simulated annealing algoritme dat gebruikt maakt van shortkritiek. Er is verder onderscheid gemaakt tussen Holland of Nederland en de normale kritieke verbindingen of alles kritiek. 
+
+De verschillende combinaties van situaties zijn allemaal voor verschillende aantallen trajecten meerdere keren uitgevoerd. Uit de grafieken valt op te maken dat het random simulated annealing algoritme in alle combinaties beter presteert dan het simulated annealing algoritme met shortkritiek. Daarom kan geconcludeerd worden dat het random simulated annealing algoritme beter werkt voor deze case.
