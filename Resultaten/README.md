@@ -10,7 +10,7 @@
   * 2HollandTrue t/m 7HollandTrue
     
     *Het simulated annealing algoritme met shortkritiek uitgevoerd met een verschillend aantal trajecten voor Holland. 
-    Per aantal trajecten (2 t/m 7) is het algoritme 10 keer uitgevoerd. Hierbij waren alle sporen gemarkeerd als **krtiek**.*
+    Per aantal trajecten (2 t/m 7) is het algoritme 10 keer uitgevoerd. Hierbij waren alle sporen gemarkeerd als **kritiek**.*
     
   * 10NederlandFalse t/m 20NederlandFalse
     
@@ -20,7 +20,7 @@
   * 10NederlandTrue t/m 20NederlandTrue
     
     *Het simulated annealing algoritme met shortkritiek uitgevoerd met een verschillend aantal trajecten voor Nederland. 
-    Per aantal trajecten (10 t/m 20) is het algoritme 10 keer uitgevoerd. Hierbij waren alle sporen gemarkeerd als **krtiek**.*
+    Per aantal trajecten (10 t/m 20) is het algoritme 10 keer uitgevoerd. Hierbij waren alle sporen gemarkeerd als **kritiek**.*
  
 * OutputSA2Holland.csv
   * SARandom2HollandFalse t/m SARandom7HollandFalse
@@ -31,7 +31,7 @@
   * SARandom2HollandTrue t/m SARandom7HollandTrue
     
     *Het random simulated annealing algoritme uitgevoerd met een verschillend aantal trajecten voor Holland. 
-    Per aantal trajecten (2 t/m 7) is het algoritme 10 keer uitgevoerd. Hierbij waren alle sporen gemarkeerd als **krtiek**.*
+    Per aantal trajecten (2 t/m 7) is het algoritme 10 keer uitgevoerd. Hierbij waren alle sporen gemarkeerd als **kritiek**.*
     
 * OutputSA2Nederland.csv
     
@@ -43,7 +43,7 @@
   * SARandom10NederlandTrue t/m SARandom20NederlandTrue
   
     *Het random simulated annealing algoritme uitgevoerd met een verschillend aantal trajecten voor Nederland. 
-    Per aantal trajecten (10 t/m 20) is het algoritme 5 keer uitgevoerd. Hierbij waren alle sporen gemarkeerd als **krtiek**.*
+    Per aantal trajecten (10 t/m 20) is het algoritme 5 keer uitgevoerd. Hierbij waren alle sporen gemarkeerd als **kritiek**.*
   
 ## Hill Climber: Shortkritiek vs Random
 <img src=https://github.com/SophieEnsing/Programmeertheorie/blob/master/Resultaten/doc/1.png width="800">
