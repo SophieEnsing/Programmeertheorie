@@ -57,27 +57,46 @@ while continueVar == "" or continueVar == "j":
 		kritiek = True
 
 	if programmaKeuze == "1":
+		lijnvoering, score = randomAlgoritme(1000, classnaam, maxTijd, maxTrajecten, kritiekKeuze)
 		print("")
-		print("Score Holland: ", randomAlgoritme(1000, classnaam, maxTijd, maxTrajecten, kritiekKeuze))
+		print("Score: ", score)
+		print("Lijnvoering: ", lijnvoering)
 
 	elif programmaKeuze == "2":
+		lijnvoering, score = hillClimber(maxTijd, maxTrajecten, classnaam, kritiekKeuze)
 		print("")
-		print("Score Holland: ", hillClimber(maxTijd, maxTrajecten, classnaam, kritiekKeuze))
+		print("Score: ", score)
+		print("Lijnvoering: ", lijnvoering)
 	
 	elif programmaKeuze == "3":
+		lijnvoering, score = hillClimber2(maxTijd, maxTrajecten, classnaam, kritiekKeuze)
 		print("")
-		print("Score Holland: ", hillClimber2(maxTijd, maxTrajecten, classnaam, kritiekKeuze))
-
+		print("Score: ", score)
+		print("Lijnvoering: ", lijnvoering)
+		
 	elif programmaKeuze == "4":
+		lijnvoering, score = simulatedAnnealing(maxTijd, maxTrajecten, classnaam, kritiekKeuze)
 		print("")
-		print("Score Holland: ", simulatedAnnealing(maxTijd, maxTrajecten, classnaam, kritiekKeuze))
+		print("Score: ", score)
+		print("Lijnvoering: ", lijnvoering)
 
 	elif programmaKeuze == "5":
+		lijnvoering, score = simulatedAnnealing2(maxTijd, maxTrajecten, classnaam, kritiekKeuze)
 			print("")
-			print("Score Holland: ", simulatedAnnealing2(maxTijd, maxTrajecten, classnaam, kritiekKeuze))
+		print("Score: ", score)
+		print("Lijnvoering: ", lijnvoering)
 
 	elif programmaKeuze == "6":
 		visualisatie(classnaam)
+
+# 	if vis == "j":
+# lijstje = []
+
+# for i in lijnvoering:
+# 	for x in range(len(i[0]) - 1):
+# 		lijstje.append((i[0][x], i[0][x + 1]))
+
+# print lijstje
 
 	print("")
 	continueVar = input("Druk 'j' om nog een algoritme te runnen, druk 'n' om te stoppen: ")
