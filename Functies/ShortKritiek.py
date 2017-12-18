@@ -1,3 +1,7 @@
+# RailNL
+# Namen: Rosalie Snijders, Gavin Schipper & Sophie Ensing
+# Groepsnaam: Brogrammers
+
 import random
 from Algoritmes.Random import *
 
@@ -14,13 +18,13 @@ def shortKritiek(station, trajectTijd, classname):
 	
 	route.append(station)	
 
-	# Maak lijsten van normale verbindingen en kritieke verbindingen
+	# Maak lijsten van normale verbindingen en kritieke verbindingen.
 	verbindingen = [ (afstand, eindstation) for afstand, eindstation in classname.verbinding[station] 
 						if eindstation not in route ]
 	kritiekeVerbindingen = [ (afstand, eindstation) for afstand, eindstation in 
 							verbindingen if eindstation in classname.stationsKritiek or station in classname.stationsKritiek ]
 
-	# Kies eerst de kortste kritieke verbinding en anders de kortste verbinding
+	# Kies eerst de kortste kritieke verbinding en anders de kortste verbinding.
 	if len(kritiekeVerbindingen) >= 1:
 		kort = sorted(kritiekeVerbindingen)[0]
 
@@ -29,7 +33,8 @@ def shortKritiek(station, trajectTijd, classname):
 
 	else:
 		return route, tijd
-
+	
+	# Controleer of de maximale trajectijd niet wordt overschreden.
 	if tijd + int(kort[0]) < trajectTijd:
 		station = kort[1]
 		tijd += int(kort[0])
@@ -42,12 +47,11 @@ def lijnvoering(trajectTijd, beginStations, classname):
 	Trajecttijd: maximale tijd in minuten per traject
 	Aantaltrajecten: aantal trajecten in de lijnvoering"""
 
-	# Genereer random beginstations
 	trajecten = []
 	global tijd
 	global route
 
-	# Maak voor elk beginstation een traject
+	# Maak voor elk beginstation een traject en voeg dat dan samen tot een lijnvoering.
 	for station in beginStations:
 		tijd = 0
 		route = []
