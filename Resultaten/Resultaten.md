@@ -23,11 +23,11 @@
     Per aantal trajecten (10 t/m 20) is het algoritme 5 keer uitgevoerd. Hierbij waren alle sporen gemarkeerd als **krtiek**.*
   
 ## Hill Climber: Shortkritiek vs Random
--afbeelding-
+<img src=https://github.com/SophieEnsing/Programmeertheorie/blob/master/Resultaten/doc/1.png width="800">
 
 ## Simulated Annealing: ShortKritiek vs. Random
 ### Holland
--afbeelding-
+<img src=https://github.com/SophieEnsing/Programmeertheorie/blob/master/Resultaten/doc/2.png width="400"> <img src=https://github.com/SophieEnsing/Programmeertheorie/blob/master/Resultaten/doc/3.png width="400">
 
 ### Nederland
 -afbeelding-
