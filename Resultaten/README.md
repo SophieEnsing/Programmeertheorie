@@ -31,7 +31,7 @@ Bij de hill climber met de random instelling ligt de piek hoger, namelijk tussen
 
 ## Simulated Annealing: ShortKritiek vs. Random
 ### Holland
-<img src=https://github.com/SophieEnsing/Programmeertheorie/blob/master/Resultaten/doc/2.png width="400"> <img src=https://github.com/SophieEnsing/Programmeertheorie/blob/master/Resultaten/doc/3.png width="400">
+<img src=https://github.com/SophieEnsing/Programmeertheorie/blob/master/Resultaten/doc/3.png width="400"> <img src=https://github.com/SophieEnsing/Programmeertheorie/blob/master/Resultaten/doc/2.png width="400">
 
 ### Nederland
--afbeelding-
+<img src=https://github.com/SophieEnsing/Programmeertheorie/blob/master/Resultaten/doc/4.png width="400"> <img src=https://github.com/SophieEnsing/Programmeertheorie/blob/master/Resultaten/doc/5.png width="400">
