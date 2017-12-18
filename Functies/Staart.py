@@ -40,7 +40,8 @@ def staart(lijnvoering, classname, trajectTijd):
 	tijd = somTijd(beginTraject, classname)
 
 	verbindingen = [ (afstand, eindstation) for afstand, eindstation in 
-			classname.verbinding[veranderStation] if eindstation != veranderTraject[indexStation + 1] and eindstation not in beginTraject]
+			classname.verbinding[veranderStation] if eindstation != veranderTraject[indexStation + 1] 
+			and eindstation not in beginTraject]
 	
 	# Maak een nieuwe route vanaf het random gekozen station als het station een andere mogelijke verbinding heeft.
 	if len(verbindingen) >= 1:
