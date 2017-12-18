@@ -7,6 +7,7 @@ from Algoritmes.Random import *
 from Algoritmes.SimulatedAnnealing import *
 from Functies.ReadData import *
 from Visualisatie.Network import *
+from Visualisatie.resultNetwork import *
 
 logo = """\
 
@@ -33,7 +34,7 @@ while continueVar == "" or continueVar == "j":
 	print("3 = Hillclimber 2 algoritme")
 	print("4 = Simulated Annealing algoritme")
 	print("5 = Simulated Annealing 2 algoritme")
-	print("6 = Visualiseer het netwerk")
+	print("6 = Visualiseer het gehele netwerk")
 	print("")
 
 	programmaKeuze = input("Welk programma wil je uitvoeren? ")
@@ -59,44 +60,47 @@ while continueVar == "" or continueVar == "j":
 	if programmaKeuze == "1":
 		lijnvoering, score = randomAlgoritme(1000, classnaam, maxTijd, maxTrajecten, kritiekKeuze)
 		print("")
-		print("Score: ", score)
-		print("Lijnvoering: ", lijnvoering)
+		print("SCORE: ", score)
+		print("LIJNVOERING: ", lijnvoering)
 
 	elif programmaKeuze == "2":
 		score, lijnvoering = hillClimber(maxTijd, maxTrajecten, classnaam, kritiekKeuze)
 		print("")
-		print("Score: ", score)
-		print("Lijnvoering: ", lijnvoering)
+		print("SCORE: ", score)
+		print("LIJNVOERING: ", lijnvoering)
 	
 	elif programmaKeuze == "3":
 		score, lijnvoering = hillClimber2(maxTijd, maxTrajecten, classnaam, kritiekKeuze)
 		print("")
-		print("Score: ", score)
-		print("Lijnvoering: ", lijnvoering)
+		print("SCORE: ", score)
+		print("LIJNVOERING: ", lijnvoering)
 		
 	elif programmaKeuze == "4":
 		score, lijnvoering = simulatedAnnealing(maxTijd, maxTrajecten, classnaam, kritiekKeuze)
 		print("")
-		print("Score: ", score)
-		print("Lijnvoering: ", lijnvoering)
+		print("SCORE: ", score)
+		print("LIJNVOERING: ", lijnvoering)
 
 	elif programmaKeuze == "5":
 		score, lijnvoering = simulatedAnnealing2(maxTijd, maxTrajecten, classnaam, kritiekKeuze)
 		print("")
-		print("Score: ", score)
-		print("Lijnvoering: ", lijnvoering)
+		print("SCORE: ", score)
+		print("LIJNVOERING: ", lijnvoering)
+
+	vis = input("Wil je het resultaat visualiseren? Druk 'j', druk 'n' om verder te gaan: ")
 
 	elif programmaKeuze == "6":
 		visualisatie(classnaam)
 
-# 	if vis == "j":
-# lijstje = []
+	if vis == "j":
+		verbindingLijst = []
 
-# for i in lijnvoering:
-# 	for x in range(len(i[0]) - 1):
-# 		lijstje.append((i[0][x], i[0][x + 1]))
+		for i in lijnvoering:
+			for x in range(len(i[0]) - 1):
+				verbindingLijst.append((i[0][x], i[0][x + 1]))
+		resultaatVisualisatie(classnaam, verbindingLijst)
 
-# print lijstje
+
 
 	print("")
 	continueVar = input("Druk 'j' om nog een algoritme te runnen, druk 'n' om te stoppen: ")
