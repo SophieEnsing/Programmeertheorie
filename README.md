@@ -27,14 +27,14 @@ Om de aparte algoritmes zelf uit te voeren met verschillende variabelen moet je 
 python -i __main__.py
 ```
 
-Hierna kan je alle algoritmes apart aanroepen. Hierbij is de classnaam Holland of Nederland, de maxTijd het maximale aantal minuten per traject, maxTrajecten het maximale aantal trajecten en kritiekKeuze is True als alle verbindingen kritiek zijn en False als niet alle verbindingen kritiek zijn.
+Hierna kan je alle algoritmes apart aanroepen. De functies hillClimber en simulatedAnnealing hebben 2 versies: de eerste gebruikt shortKritiek om trajecten te maken en verandert telkens hele beginstations en de tweede versie gebruikt een random traject en verandert telkens de staart binnen een traject. De parameters van de functies zijn: classnaam, maxTijd, maxTrajecten en kritiekKeuze. De classnaam is Holland of Nederland, de maxTijd het maximale aantal minuten per traject, maxTrajecten het maximale aantal trajecten en kritiekKeuze is True als alle verbindingen kritiek zijn en False als niet alle verbindingen kritiek zijn. Bij het randomalgoritme is de eerste parameter hoeveel iteraties je wil doen.
 
 ```python
-randomAlgoritme(1000, classnaam, maxTijd, maxTrajecten, kritiekKeuze))
-hillClimber(maxTijd, maxTrajecten, classnaam, kritiekKeuze))
-simulatedAnnealing(maxTijd, maxTrajecten, classnaam, kritiekKeuze))
-hillClimber2(maxTijd, maxTrajecten, classnaam, kritiekKeuze))
-simulatedAnnealing2(maxTijd, maxTrajecten, classnaam, kritiekKeuze))
+randomAlgoritme (1000, classnaam, maxTijd, maxTrajecten, kritiekKeuze))
+hillClimber (maxTijd, maxTrajecten, classnaam, kritiekKeuze))
+simulatedAnnealing (maxTijd, maxTrajecten, classnaam, kritiekKeuze))
+hillClimber2 (maxTijd, maxTrajecten, classnaam, kritiekKeuze))
+simulatedAnnealing2 (maxTijd, maxTrajecten, classnaam, kritiekKeuze))
 ```
 
 ## Auteurs
@@ -43,4 +43,4 @@ Sophie Ensing, Gavin Schipper en Rosalie Snijders.
 
 ## Acknowledgements
 
-Tech Assistent: Yannick Vinkesteijn
+Yannick Vinkesteijn & Bas Terwijn
