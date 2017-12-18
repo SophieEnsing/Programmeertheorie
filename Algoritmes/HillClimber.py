@@ -1,3 +1,7 @@
+# RailNL
+# Namen: Rosalie Snijders, Gavin Schipper & Sophie Ensing
+# Groepsnaam: Brogrammers
+
 import random
 from Functies.ShortKritiek import *
 from Functies.Score import *
@@ -11,10 +15,10 @@ from Algoritmes.Random import *
 
 def hillClimber(trajectTijd, aantalTrajecten, classname, kritiek):
 	""" Maak een random combinate van trajecten als start state
-	en verander elke keer 1 beginstation. Neem de verandering aan
+	en verander steeds 1 beginstation. Neem de verandering aan
 	als het beter is en anders door naar een volgende optie. In het
 	archief wordt bijgehouden of niet dezelfde combinaties geprobeerd
-	worden. 
+	worden. Returned de beste score.
 	"""
 	beginStations = random.sample(classname.stations, aantalTrajecten)
 
@@ -25,17 +29,14 @@ def hillClimber(trajectTijd, aantalTrajecten, classname, kritiek):
 	
 	# C houdt bij hoevaak achter elkaar er geen betere oplossing is
 	c = 0
-	aantal_iteraties = 0
-	scores = []
 
 	# Stop als er 1000 keer achter elkaar geen betere oplossing is gevonden
 	while c < 1000:
-		aantal_iteraties += 1
-		scores.append(currentScore)
-
 		index = random.randint(0, (aantalTrajecten - 1)) 
 		station = random.choice(classname.stations)
-
+		
+		# Als het nieuw gekozen station al in de beginstations staat
+		# kies een nieuw station.
 		while station in beginStations:
 			station = random.choice(classname.stations)
 
@@ -60,7 +61,7 @@ def hillClimber(trajectTijd, aantalTrajecten, classname, kritiek):
 			else:
 				c += 1
 
-	return currentScore
+	return currentScore, currentState
 
 #
 # HILLCLIMBER 2
@@ -72,6 +73,7 @@ def hillClimber2(trajectTijd, aantalTrajecten, classname, kritiek):
 	staart in een van de trajecten een aanpassing gemaakt. Van de 
 	nieuwe staat wordt de score berekend. Neem de verandering aan
 	als het beter is en anders door naar een volgende optie.
+	Returned de beste score.
 	"""
 
 	# Maak een begin state en archief aan
@@ -84,9 +86,11 @@ def hillClimber2(trajectTijd, aantalTrajecten, classname, kritiek):
 
 	# Stop als er 10000 keer achter elkaar geen betere oplossing is gevonden
 	while c < 10000:
+		# De staart functie verandert in een van de trajecten de staart van het traject.
 		newState = staart(currentState, classname, trajectTijd)
 		newScore = scoreLijnvoering(newState, classname, kritiek)
 
+		# Check of de score beter is
 		if newScore > currentScore:
 			currentState = newState
 			currentScore = newScore
@@ -95,5 +99,5 @@ def hillClimber2(trajectTijd, aantalTrajecten, classname, kritiek):
 		else:
 			c += 1
 
-	return currentScore
+	return currentScore, currentState
 
