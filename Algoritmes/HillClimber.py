@@ -14,7 +14,7 @@ from Algoritmes.Random import *
 #
 
 def hillClimber(trajectTijd, aantalTrajecten, classname, kritiek):
-	""" Maak een random combinate van trajecten als start state
+	""" Maak een random combinatie van trajecten als start state
 	en verander steeds 1 beginstation. Neem de verandering aan
 	als het beter is en anders door naar een volgende optie. In het
 	archief wordt bijgehouden of niet dezelfde combinaties geprobeerd
