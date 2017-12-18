@@ -1,7 +1,7 @@
 # Resultaten
 
 ## CSV-files
-* OutputSA2.csv
+* OutputSA2Holland.csv
   * SARandom2HollandFalse t/m SARandom7HollandFalse
     
     *Het random simulated annealing algoritme uitgevoerd met een verschillend aantal trajecten voor Holland. 
@@ -11,6 +11,8 @@
     
     *Het random simulated annealing algoritme uitgevoerd met een verschillend aantal trajecten voor Holland. 
     Per aantal trajecten (2 t/m 7) is het algoritme 10 keer uitgevoerd. Hierbij waren alle sporen gemarkeerd als **krtiek**.*
+    
+* OutputSA2Nederland.csv
     
   * SARandom10NederlandFalse t/m SARandom20NederlandFalse
   
