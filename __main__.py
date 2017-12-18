@@ -4,11 +4,6 @@ from Algoritmes.SimulatedAnnealing import *
 from Functies.ReadData import *
 from Visualisatie.Network import *
 
-classnaam = Holland
-kritiekKeuze = False
-maxTrajecten = 7
-maxTijd = 120
-
 logo = """\
 
     __ _           _   _   _   _   _     
@@ -22,13 +17,19 @@ logo = """\
 print(logo)
 
 continueVar = ""
+classnaam = Holland
+kritiekKeuze = False
+maxTrajecten = 7
+maxTijd = 120
 
 while continueVar == "" or continueVar == "j":
 	print("")
 	print("1 = Random algoritme")
 	print("2 = Hillclimber algoritme")
-	print("3 = Simulated Annealing algoritme")
-	print("4 = Visualiseer het netwerk")
+	print("3 = Hillclimber 2 algoritme")
+	print("4 = Simulated Annealing algoritme")
+	print("5 = Simulated Annealing 2 algoritme")
+	print("6 = Visualiseer het netwerk")
 	print("")
 
 	programmaKeuze = input("Welk programma wil je uitvoeren? ")
@@ -58,12 +59,20 @@ while continueVar == "" or continueVar == "j":
 	elif programmaKeuze == "2":
 		print("")
 		print("Score Holland: ", hillClimber(maxTijd, maxTrajecten, classnaam, kritiekKeuze))
-
+	
 	elif programmaKeuze == "3":
+		print("")
+		print("Score Holland: ", hillClimber2(maxTijd, maxTrajecten, classnaam, kritiekKeuze))
+
+	elif programmaKeuze == "4":
 		print("")
 		print("Score Holland: ", simulatedAnnealing(maxTijd, maxTrajecten, classnaam, kritiekKeuze))
 
-	elif programmaKeuze == "4":
+	elif programmaKeuze == "5":
+			print("")
+			print("Score Holland: ", simulatedAnnealing2(maxTijd, maxTrajecten, classnaam, kritiekKeuze))
+
+	elif programmaKeuze == "6":
 		visualisatie(classnaam)
 
 	print("")
