@@ -25,6 +25,10 @@
 ## Hill Climber: Shortkritiek vs Random
 <img src=https://github.com/SophieEnsing/Programmeertheorie/blob/master/Resultaten/doc/1.png width="800">
 
+We hebben zowel de Random Hill Climber als de ShortKritiek Hill Climber voor ieder aantal trajecten (2 t/m 7) 100 keer uitgevoerd. De algoritmes zijn uitgevoerd voor Holland en met de normale kritieke sporen. Dit heeft geresulteerd in de bovenstaande grafiek, waarin duidelijk de spreidingen van de twee algoritmes te zien zijn. De piek van hill climber met shortkritiek ligt tussen 8.750 en 9.000. De maximale score die gevonden is bij shortkritiek ligt onder de 9.500.
+
+Bij de hill climber met de random instelling ligt de piek hoger, namelijk tussen de 9.750 en 10.000. De laagst gevonden score van dit algoritme ligt ongeveer gelijk met de hoogst gevonden score van de hill climber met shortkritiek. Kijkend naar deze resulaten kan geconcludeerd wordend dat de hill climber met het random algoritme beter werkt voor deze case. 
+
 ## Simulated Annealing: ShortKritiek vs. Random
 ### Holland
 <img src=https://github.com/SophieEnsing/Programmeertheorie/blob/master/Resultaten/doc/2.png width="400"> <img src=https://github.com/SophieEnsing/Programmeertheorie/blob/master/Resultaten/doc/3.png width="400">
