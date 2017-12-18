@@ -31,9 +31,13 @@ Hierna kan je alle algoritmes apart aanroepen. De functies hillClimber en simula
 
 ```python
 randomAlgoritme (1000, classnaam, maxTijd, maxTrajecten, kritiekKeuze))
+
 hillClimber (maxTijd, maxTrajecten, classnaam, kritiekKeuze))
+
 simulatedAnnealing (maxTijd, maxTrajecten, classnaam, kritiekKeuze))
+
 hillClimber2 (maxTijd, maxTrajecten, classnaam, kritiekKeuze))
+
 simulatedAnnealing2 (maxTijd, maxTrajecten, classnaam, kritiekKeuze))
 ```
 
