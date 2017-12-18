@@ -1,3 +1,7 @@
+# RailNL
+# Namen: Rosalie Snijders, Gavin Schipper & Sophie Ensing
+# Groepsnaam: Brogrammers
+
 from __future__ import division
 
 def scoreLijnvoering(lijnvoering, classname, kritiek):
@@ -6,7 +10,8 @@ def scoreLijnvoering(lijnvoering, classname, kritiek):
 	"""
 	stationLijst = classname.stations
 	verbindingLijst = classname.edges
-
+	
+	# Check of alle verbindingen als kritiek worden meegegeven
 	if kritiek == False:
 		stationLijst = classname.stationsKritiek
 		verbindingLijst = classname.verbindingKritiek
