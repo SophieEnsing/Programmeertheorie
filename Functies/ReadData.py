@@ -1,3 +1,7 @@
+# RailNL
+# Namen: Rosalie Snijders, Gavin Schipper & Sophie Ensing
+# Groepsnaam: Brogrammers
+
 import csv
 
 # Class voor netwerk van verbindingen en stations
@@ -35,10 +39,12 @@ class netwerkClass:
                 if row[0] in classname.stationsKritiek or row[1] in classname.stationsKritiek:
                     self.verbindingKritiek.append((row[0], row[1]))
 
+# Aanmaken van Holland Class.
 Holland = netwerkClass()
 Holland.inlezenStations('Data/StationsHolland.csv')
 Holland.inlezenVerbindingen('Data/ConnectiesHolland.csv', Holland)
 
+# Aanmaken van Nederland Class.
 Nederland = netwerkClass()
 Nederland.inlezenStations('Data/StationsNationaal.csv')
 Nederland.inlezenVerbindingen('Data/ConnectiesNationaal.csv', Nederland)
