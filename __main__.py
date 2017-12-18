@@ -26,7 +26,6 @@ classnaam = Holland
 kritiekKeuze = False
 maxTrajecten = 7
 maxTijd = 120
-vis = ""
 
 while continueVar == "" or continueVar == "j":
 	print("")
@@ -59,57 +58,33 @@ while continueVar == "" or continueVar == "j":
 		kritiek = True
 
 	if programmaKeuze == "1":
-		lijnvoering, score = randomAlgoritme(1000, classnaam, maxTijd, maxTrajecten, kritiekKeuze)
 		print("")
-		print("SCORE: ", score)
-		print("LIJNVOERING: ", lijnvoering)
+		print("SCORE: ", randomAlgoritme(1000, classnaam, maxTijd, maxTrajecten, kritiekKeuze))
 		print("")
-		vis = input("Wil je het resultaat visualiseren? Druk 'j', druk 'n' om verder te gaan: ")
 
 	elif programmaKeuze == "2":
-		score, lijnvoering = hillClimber(maxTijd, maxTrajecten, classnaam, kritiekKeuze)
 		print("")
-		print("SCORE: ", score)
-		print("LIJNVOERING: ", lijnvoering)
+		print("SCORE: ", hillClimber(maxTijd, maxTrajecten, classnaam, kritiekKeuze))
 		print("")
-		vis = input("Wil je het resultaat visualiseren? Druk 'j', druk 'n' om verder te gaan: ")
-	
+
+
 	elif programmaKeuze == "3":
-		score, lijnvoering = hillClimber2(maxTijd, maxTrajecten, classnaam, kritiekKeuze)
 		print("")
-		print("SCORE: ", score)
-		print("LIJNVOERING: ", lijnvoering)
+		print("SCORE: ", hillClimber2(maxTijd, maxTrajecten, classnaam, kritiekKeuze))
 		print("")
-		vis = input("Wil je het resultaat visualiseren? Druk 'j', druk 'n' om verder te gaan: ")
 		
 	elif programmaKeuze == "4":
-		score, lijnvoering = simulatedAnnealing(maxTijd, maxTrajecten, classnaam, kritiekKeuze)
 		print("")
-		print("SCORE: ", score)
-		print("LIJNVOERING: ", lijnvoering)
+		print("SCORE: ", simulatedAnnealing(maxTijd, maxTrajecten, classnaam, kritiekKeuze))
 		print("")
-		vis = input("Wil je het resultaat visualiseren? Druk 'j', druk 'n' om verder te gaan: ")
 
 	elif programmaKeuze == "5":
-		score, lijnvoering = simulatedAnnealing2(maxTijd, maxTrajecten, classnaam, kritiekKeuze)
 		print("")
-		print("SCORE: ", score)
-		print("LIJNVOERING: ", lijnvoering)
+		print("SCORE: ", simulatedAnnealing2(maxTijd, maxTrajecten, classnaam, kritiekKeuze))
 		print("")
-		vis = input("Wil je het resultaat visualiseren? Druk 'j', druk 'n' om verder te gaan: ")
 
 	elif programmaKeuze == "6":
 		visualisatie(classnaam)
-
-	if vis == "j":
-		verbindingLijst = []
-
-		for i in lijnvoering:
-			for x in range(len(i[0]) - 1):
-				verbindingLijst.append((i[0][x], i[0][x + 1]))
-		resultaatVisualisatie(classnaam, verbindingLijst)
-
-
 
 	print("")
 	continueVar = input("Druk 'j' om nog een algoritme te runnen, druk 'n' om te stoppen: ")

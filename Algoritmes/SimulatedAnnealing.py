@@ -46,7 +46,6 @@ def simulatedAnnealing(trajectTijd, aantalTrajecten, classname, kritiek):
 	# Hou bij wat de best gevonden score is.
 	maxScore = 0
 	newScore = 0
-	bestState = []
 	aantalIteraties = 0
 
 	# Stop bij minimumtemperatuur.
@@ -87,14 +86,13 @@ def simulatedAnnealing(trajectTijd, aantalTrajecten, classname, kritiek):
 					# Hou bij wat het beste is tot nu toe.
 					if newScore > maxScore:
 						maxScore = newScore
-						bestState = newState
 
 			c += 1
 			
 		# Update de temperatuur lineair.
 		T = T_0 - ( aantalIteraties * ( (T_0 - T_min) / 1000) )
 	
-	return maxScore, bestState
+	return maxScore
 
 #
 # SIMULATED ANNEALING 2
@@ -121,7 +119,6 @@ def simulatedAnnealing2(trajectTijd, aantalTrajecten, classname, kritiek):
 	# Hou de maximale score en nieuwe score bij.
 	maxScore = 0
 	newScore = 0
-	bestState = []
 	aantalIteraties = 0
 
 	# Stop bij minimumtemperatuur.
@@ -145,11 +142,10 @@ def simulatedAnnealing2(trajectTijd, aantalTrajecten, classname, kritiek):
 				# Hou bij wat het beste is tot nu toe.
 				if newScore > maxScore:
 					maxScore = newScore
-					bestState = newState
 
 			c += 1
 		
 		# Update de temperatuur lineair.
 		T = T_0 - ( aantalIteraties * ( (T_0 - T_min) / 1000) )
 	
-	return maxScore, bestState
+	return maxScore
