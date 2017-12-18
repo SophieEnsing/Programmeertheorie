@@ -26,6 +26,7 @@ classnaam = Holland
 kritiekKeuze = False
 maxTrajecten = 7
 maxTijd = 120
+vis = ""
 
 while continueVar == "" or continueVar == "j":
 	print("")
@@ -62,32 +63,40 @@ while continueVar == "" or continueVar == "j":
 		print("")
 		print("SCORE: ", score)
 		print("LIJNVOERING: ", lijnvoering)
+		print("")
+		vis = input("Wil je het resultaat visualiseren? Druk 'j', druk 'n' om verder te gaan: ")
 
 	elif programmaKeuze == "2":
 		score, lijnvoering = hillClimber(maxTijd, maxTrajecten, classnaam, kritiekKeuze)
 		print("")
 		print("SCORE: ", score)
 		print("LIJNVOERING: ", lijnvoering)
+		print("")
+		vis = input("Wil je het resultaat visualiseren? Druk 'j', druk 'n' om verder te gaan: ")
 	
 	elif programmaKeuze == "3":
 		score, lijnvoering = hillClimber2(maxTijd, maxTrajecten, classnaam, kritiekKeuze)
 		print("")
 		print("SCORE: ", score)
 		print("LIJNVOERING: ", lijnvoering)
+		print("")
+		vis = input("Wil je het resultaat visualiseren? Druk 'j', druk 'n' om verder te gaan: ")
 		
 	elif programmaKeuze == "4":
 		score, lijnvoering = simulatedAnnealing(maxTijd, maxTrajecten, classnaam, kritiekKeuze)
 		print("")
 		print("SCORE: ", score)
 		print("LIJNVOERING: ", lijnvoering)
+		print("")
+		vis = input("Wil je het resultaat visualiseren? Druk 'j', druk 'n' om verder te gaan: ")
 
 	elif programmaKeuze == "5":
 		score, lijnvoering = simulatedAnnealing2(maxTijd, maxTrajecten, classnaam, kritiekKeuze)
 		print("")
 		print("SCORE: ", score)
 		print("LIJNVOERING: ", lijnvoering)
-
-	vis = input("Wil je het resultaat visualiseren? Druk 'j', druk 'n' om verder te gaan: ")
+		print("")
+		vis = input("Wil je het resultaat visualiseren? Druk 'j', druk 'n' om verder te gaan: ")
 
 	elif programmaKeuze == "6":
 		visualisatie(classnaam)
