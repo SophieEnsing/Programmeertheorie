@@ -5,17 +5,11 @@
 import random
 from Algoritmes.Random import *
 
-tijd = 0
-route = []
-
-def shortKritiek(station, trajectTijd, classname):
+def shortKritiek(station, trajectTijd, classname, tijd, route):
 	""" Maak een traject vanuit een beginstation, vanuit dit
 	station wordt het korste kritieke pad gekozen
 	Trajecttijd: maximale tijd in minuten voor het traject
 	Station: beginstation van het traject """
-	global tijd
-	global route
-	
 	route.append(station)	
 
 	# Maak lijsten van normale verbindingen en kritieke verbindingen.
@@ -38,7 +32,7 @@ def shortKritiek(station, trajectTijd, classname):
 	if tijd + int(kort[0]) < trajectTijd:
 		station = kort[1]
 		tijd += int(kort[0])
-		shortKritiek(station, trajectTijd, classname)
+		route, tijd = shortKritiek(station, trajectTijd, classname, tijd, route)
 
 	return route, tijd
 
@@ -46,15 +40,12 @@ def lijnvoering(trajectTijd, beginStations, classname):
 	"""" Maakt een lijnvoering van verschillende trajecten
 	Trajecttijd: maximale tijd in minuten per traject
 	Aantaltrajecten: aantal trajecten in de lijnvoering"""
-
 	trajecten = []
-	global tijd
-	global route
 
 	# Maak voor elk beginstation een traject en voeg dat dan samen tot een lijnvoering.
 	for station in beginStations:
 		tijd = 0
 		route = []
-		trajecten.append(shortKritiek(station, trajectTijd, classname))
+		trajecten.append(shortKritiek(station, trajectTijd, classname, tijd, route))
 
 	return trajecten
