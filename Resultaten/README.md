@@ -14,7 +14,7 @@
     
 * OutputSA2Nederland.csv
     
-  * SARandom10NederlandFalse t/m SARandom20NederlandFalse
+  * NL10False t/m NL20False
   
     *Het random simulated annealing algoritme uitgevoerd met een verschillend aantal trajecten voor Nederland. 
     Per aantal trajecten (10 t/m 20) is het algoritme 5 keer uitgevoerd.*
