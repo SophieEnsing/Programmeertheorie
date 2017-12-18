@@ -15,10 +15,10 @@ from Algoritmes.Random import *
 
 def hillClimber(trajectTijd, aantalTrajecten, classname, kritiek):
 	""" Maak een random combinatie van trajecten als start state
-	en verander steeds 1 beginstation. Neem de verandering aan
-	als het beter is en anders door naar een volgende optie. In het
-	archief wordt bijgehouden of niet dezelfde combinaties geprobeerd
-	worden. Returned de beste score.
+	en verander steeds 1 beginstation en daarmee ook dat traject. 
+	Neem de verandering aan als het beter is en anders door naar een 
+	volgende optie. In het archief wordt bijgehouden of niet dezelfde 
+	combinaties geprobeerd worden. Returned de beste score.
 	"""
 	beginStations = random.sample(classname.stations, aantalTrajecten)
 
