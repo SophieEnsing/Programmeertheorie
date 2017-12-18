@@ -1,6 +1,27 @@
 # Resultaten
 
 ## CSV-files
+* OutputSA.csv
+  * 2HollandFalse t/m 7HollandFalse
+    
+    *Het simulated annealing algoritme met shortkritiek uitgevoerd met een verschillend aantal trajecten voor Holland. 
+    Per aantal trajecten (2 t/m 7) is het algoritme 10 keer uitgevoerd.* 
+    
+  * 2HollandTrue t/m 7HollandTrue
+    
+    *Het simulated annealing algoritme met shortkritiek uitgevoerd met een verschillend aantal trajecten voor Holland. 
+    Per aantal trajecten (2 t/m 7) is het algoritme 10 keer uitgevoerd. Hierbij waren alle sporen gemarkeerd als **krtiek**.*
+    
+  * 10NederlandFalse t/m 20NederlandFalse
+    
+    *Het simulated annealing algoritme met shortkritiek uitgevoerd met een verschillend aantal trajecten voor Nederland. 
+    Per aantal trajecten (10 t/m 20) is het algoritme 10 keer uitgevoerd.* 
+    
+  * 10NederlandTrue t/m 20NederlandTrue
+    
+    *Het simulated annealing algoritme met shortkritiek uitgevoerd met een verschillend aantal trajecten voor Nederland. 
+    Per aantal trajecten (10 t/m 20) is het algoritme 10 keer uitgevoerd. Hierbij waren alle sporen gemarkeerd als **krtiek**.*
+ 
 * OutputSA2Holland.csv
   * SARandom2HollandFalse t/m SARandom7HollandFalse
     
