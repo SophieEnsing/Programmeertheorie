@@ -76,21 +76,21 @@ def hillClimber2(trajectTijd, aantalTrajecten, classname, kritiek):
 	Returned de beste score.
 	"""
 
-	# Maak een begin state en archief aan
+	# Maak een begin state aan.
 	beginState = randomAlgoritme(1, classname, trajectTijd, aantalTrajecten, kritiek)
 	currentState = beginState[0]
 	currentScore = beginState[1]
 
-	# C houdt bij hoevaak achter elkaar er geen betere oplossing is
+	# C houdt bij hoevaak achter elkaar er geen betere oplossing is.
 	c = 0
 
-	# Stop als er 10000 keer achter elkaar geen betere oplossing is gevonden
+	# Stop als er 10000 keer achter elkaar geen betere oplossing is gevonden.
 	while c < 10000:
 		# De staart functie verandert in een van de trajecten de staart van het traject.
 		newState = staart(currentState, classname, trajectTijd)
 		newScore = scoreLijnvoering(newState, classname, kritiek)
 
-		# Check of de score beter is
+		# Check of de score beter is.
 		if newScore > currentScore:
 			currentState = newState
 			currentScore = newScore
