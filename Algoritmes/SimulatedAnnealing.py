@@ -10,7 +10,6 @@ import math
 from Functies.Score import *
 from Functies.ShortKritiek import *
 from Functies.Staart import *
-from Functies.Grafiek import *
 
 def acceptance(old, new, T):
 	""" Deze functie berekent aan de hand van de temperatuur,

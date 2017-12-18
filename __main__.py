@@ -63,26 +63,26 @@ while continueVar == "" or continueVar == "j":
 		print("Lijnvoering: ", lijnvoering)
 
 	elif programmaKeuze == "2":
-		lijnvoering, score = hillClimber(maxTijd, maxTrajecten, classnaam, kritiekKeuze)
+		score, lijnvoering = hillClimber(maxTijd, maxTrajecten, classnaam, kritiekKeuze)
 		print("")
 		print("Score: ", score)
 		print("Lijnvoering: ", lijnvoering)
 	
 	elif programmaKeuze == "3":
-		lijnvoering, score = hillClimber2(maxTijd, maxTrajecten, classnaam, kritiekKeuze)
+		score, lijnvoering = hillClimber2(maxTijd, maxTrajecten, classnaam, kritiekKeuze)
 		print("")
 		print("Score: ", score)
 		print("Lijnvoering: ", lijnvoering)
 		
 	elif programmaKeuze == "4":
-		lijnvoering, score = simulatedAnnealing(maxTijd, maxTrajecten, classnaam, kritiekKeuze)
+		score, lijnvoering = simulatedAnnealing(maxTijd, maxTrajecten, classnaam, kritiekKeuze)
 		print("")
 		print("Score: ", score)
 		print("Lijnvoering: ", lijnvoering)
 
 	elif programmaKeuze == "5":
-		lijnvoering, score = simulatedAnnealing2(maxTijd, maxTrajecten, classnaam, kritiekKeuze)
-			print("")
+		score, lijnvoering = simulatedAnnealing2(maxTijd, maxTrajecten, classnaam, kritiekKeuze)
+		print("")
 		print("Score: ", score)
 		print("Lijnvoering: ", lijnvoering)
 

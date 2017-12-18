@@ -6,7 +6,6 @@ import random
 from Functies.ShortKritiek import *
 from Functies.Score import *
 from Functies.Staart import *
-from Functies.Grafiek import *
 from Algoritmes.Random import *
 
 #
