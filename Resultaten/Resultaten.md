@@ -1,4 +1,4 @@
-# Resultaten toegelicht
+# Resultaten
 
 ## CSV-files
 * OutputSA2.csv
