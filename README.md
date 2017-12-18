@@ -18,3 +18,7 @@ Voor het testen en uitvoeren van de verschillende algoritmes is het alleen nodig
 ## Auteurs
 
 Sophie Ensing, Gavin Schipper en Rosalie Snijders.
+
+## Acknowledgements
+
+Tech Assistent: Yannick Vinkesteijn
